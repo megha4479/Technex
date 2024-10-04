@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+   body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: black;
+        }
+
+        .background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(124, 32, 222, 0.592), rgba(0, 0, 0, 1) 50%);
+            pointer-events: none;
+            mix-blend-mode: lighten;
+            transition: background 0.2s ease-out;
+        }
+
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  margin-right: 8px;
+}
+
+.logo-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin-right: 24px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.nav-button {
+  background-color: #282c34;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.nav-button:hover {
+  background-color: #343a40;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.sidebar {
+  width: 200px;
+  padding: 1rem;
+  background-color: #282c34;
+  border-radius: 8px;
+}
+
+.sidebar-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-list li {
+  margin-bottom: 8px;
+}
+
+.sidebar-list a {
+  display: block;
+  padding: 8px 16px;
+  background-color: #343a40;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.sidebar-list a:hover {
+  background-color: #495057;
+}
+
+.sidebar-list .new {
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+.main-content {
+  flex: 1;
+  padding: 1rem;
+}
+
+.main-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.main-description {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.section {
+  background-color: #282c34;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.section-content {
+  font-size: 1rem;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 230px;
+  padding: 1rem;
+  background-color: #343a40;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.card-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.card-description {
+  font-size: 1rem;
+}
+
+.card-button {
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.card-button:hover {
+  background-color: #45a049;
+}
+
+.cta-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #282c34;
+  border-radius: 8px;
+  margin-top: 2rem;
+}
+
+.cta-text {
+  font-size: 1rem;
+  margin-right: 1rem;
+}
+
+.cta-button {
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  background-color: #45a049;
+}
+
+.footer {
+  background-color: #282c34;
+  padding: 1rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.footer-links {
+  display: inline-block;
+  margin: 0 8px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-copyright {
+  font-size: 0.8rem;
+  color: #808080;
+  margin-top: 8px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="logo">
+    <img class="logo-icon" src="https://www.greatfrontend.com/static/media/logo.27387b4b.svg" alt="TECHNEX">
+    <span class="logo-text">TECHNEX</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#">Interviews</a></li>
+    <li><a href="#">Dashboard</a></li>
+    <li><a href="#">Practice questions</a></li>
+    <li><a href="#">Guides</a></li>
+    <li><a href="#" class="nav-button">Pricing</a></li>
+    <li><a href="#" class="nav-button">Sign in / up</a></li>
+    <li><a href="#" class="nav-button">A</a></li>
+    <li><a href="#" class="nav-button">Get full access</a></li>
+  </ul>
+</div>
+<div class="content">
+  <div class="sidebar">
+    <h2 class="sidebar-title">Prep dashboard</h2>
+    <ul class="sidebar-list">
+      <li><a href="#">Practice by framework</a></li>
+      <li><a href="#">Interview guides</a></li>
+      <li><a href="#">Study plans</a></li>
+      <li><a href="#">Focus areas</a></li>
+      <li><a href="#" class="new">Company guides</a></li>
+    </ul>
+    <div class="section">
+      <h3>Giving away 20% off all plans!</h3>
+      <div class="cta-container">
+        <span class="cta-text">20% off</span>
+        <span class="cta-text">All plans, including lifetime</span>
+      </div>
+      <p>Complete simple tasks like following our social accounts to get 20% discount off!</p>
+      <button class="cta-button">Check it out →</button>
+    </div>
+    <div class="footer">
+      <ul class="footer-links">
+        <li><a href="#">Discord</a></li>
+        <li><a href="#">Github</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Twitter</a></li>
+      </ul>
+      <p class="footer-copyright">© 2023 GreatFrontEnd. All rights reserved.</p>
+    </div>
+  </div>
+  <div class="main-content">
+    <h1 class="main-title">Preparation dashboard</h1>
+    <p class="main-description">We recommend these 4 areas of learning to prepare you holistically for your front end interview rounds. Explore guides and 200+ practice questions here.</p>
+    <div class="card-container">
+      <div class="card">
+        <i class="card-icon">🖥️</i>
+        <h3 class="card-title">Coding</h3>
+        <p class="card-description">3 subareas</p>
+        <button class="card-button">Practice coding →</button>
+      </div>
+      <div class="card">
+        <i class="card-icon">📚</i>
+        <h3 class="card-title">System design</h3>
+        <p class="card-description">3 subareas</p>
+        <button class="card-button">Practice system design →</button>
+      </div>
+      <div class="card">
+        <i class="card-icon">🎨</i>
+        <h3 class="card-title">UI and UX</h3>
+        <p class="card-description">2 subareas</p>
+        <button class="card-button">Practice UI and UX →</button>
+      </div>
+      <div class="card">
+        <i class="card-icon">🔧</i>
+        <h3 class="card-title">Lodash Funct</h3>
+        <p class="card-description">4 subareas</p>
+        <button class="card-button">Practice Lodash Funct →</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="background" id="background"></div>
+
+<script>
+document.addEventListener('mousemove', function(e) {
+  const background = document.getElementById('background');
+  const x = e.clientX / window.innerWidth;
+  const y = e.clientY / window.innerHeight;
+  
+  background.style.background = `radial-gradient(circle, rgba(${124 + 100 * x}, ${32 + 200 * y}, 222, 0.592), rgba(0, 0, 0, 1) 50%)`;
+});
+</script>
+</body>
+</html>

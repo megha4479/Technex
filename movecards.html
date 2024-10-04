@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Moving Cards</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .row {
+      display: flex;
+      overflow-x: hidden; /* Hide horizontal scrollbar */
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: #444;
+      color: #eee;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 10px;
+      flex-shrink: 0; /* Prevent cards from shrinking */
+      width: 200px; /* Set card width */
+      transition: transform 0.5s ease; /* Add smooth transition */
+    }
+
+    .card-header {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row row1">
+      <div class="card">
+        <div class="card-header">Card 1</div>
+        <div class="card-content">Content for card 1</div>
+      </div>
+      <div class="card">
+        <div class="card-header">Card 2</div>
+        <div class="card-content">Content for card 2</div>
+      </div>
+      <div class="card">
+        <div class="card-header">Card 3</div>
+        <div class="card-content">Content for card 3</div>
+      </div>
+      <!-- Add more cards as needed -->
+    </div>
+
+    <div class="row row2">
+      <div class="card">
+        <div class="card-header">Card 4</div>
+        <div class="card-content">Content for card 4</div>
+      </div>
+      <div class="card">
+        <div class="card-header">Card 5</div>
+        <div class="card-content">Content for card 5</div>
+      </div>
+      <div class="card">
+        <div class="card-header">Card 6</div>
+        <div class="card-content">Content for card 6</div>
+      </div>
+      <!-- Add more cards as needed -->
+    </div>
+  </div>
+
+  <script>
+    const row1 = document.querySelector('.row1');
+    const row2 = document.querySelector('.row2');
+    let x1 = 0, x2 = 0; // Track positions for each row
+
+    function animate() {
+      // Move row 1 to the left
+      x1 -= 1;
+      row1.style.transform = `translateX(${x1}px)`;
+
+      // Move row 2 to the right
+      x2 += 1;
+      row2.style.transform = `translateX(${x2}px)`;
+
+      // When row 1 goes beyond the screen, reset its position
+      if (x1 < -row1.offsetWidth) {
+        x1 = 0;
+      }
+
+      // When row 2 goes beyond the screen, reset its position
+      if (x2 > row2.offsetWidth) {
+        x2 = 0;
+      }
+
+      requestAnimationFrame(animate); // Smooth animation
+    }
+
+    animate(); // Start the animation
+  </script>
+</body>
+</html>

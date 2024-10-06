@@ -1,0 +1,155 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a1a1a;
+}
+
+/* Container Styling */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Sign-up Box Styling */
+.signup-box {
+    background-color: #222;
+    padding: 40px 30px;
+    width: 400px;
+    border-radius: 30px;
+    position: relative;
+    box-shadow: 0 0 30px rgba(155, 89, 182, 0.6); /* Purple glow */
+}
+
+.signup-box h2 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Social signup buttons styling */
+.social-signup {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.social-signup button {
+    width: 48%;
+    background-color: #333;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.social-signup button i {
+    margin-right: 8px;
+}
+
+.social-signup button:hover {
+    background-color: #444;
+}
+
+.google-btn {
+    background-color: #db4437;
+}
+
+.github-btn {
+    background-color: #333;
+}
+
+.google-btn:hover {
+    background-color: #c13c2f;
+}
+
+.github-btn:hover {
+    background-color: #444;
+}
+
+/* OR line styling */
+.or {
+    color: #bbb;
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Input field styling */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    color: #bbb;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+}
+
+.input-group input::placeholder {
+    color: #888;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #888;
+}
+
+/* Create Account Button Styling */
+.signup-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #8e44ad;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.signup-btn:hover {
+    background-color: #732d91;
+}
+
+/* Login link styling */
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+    color: #bbb;
+}
+
+.login-link a {
+    color: #8e44ad;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}

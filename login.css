@@ -1,0 +1,114 @@
+/* General body styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #121212; /* Dark background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Login box styling */
+.login-box {
+    background-color: #1c1c1c; /* Slightly lighter dark background for the box */
+    padding: 50px;
+    border-radius: 30px; /* Rounded corners */
+    box-shadow: 0 0 20px rgba(155, 89, 182, 0.6), /* Purple glow */
+                0 0 40px rgba(155, 89, 182, 0.5),
+                0 0 60px rgba(155, 89, 182, 0.4); /* Stronger glow for depth */
+    width: 400px; /* Width of the login box */
+    text-align: center;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Border for slight contrast */
+}
+
+/* Styling for the title 'Login' */
+.login-box h2 {
+    color: #ffffff;
+    font-size: 30px;
+    margin-bottom: 40px;
+}
+
+/* Styling for the input fields */
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 10px 0 20px 0;
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Soft border */
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #333; /* Dark input fields */
+    color: #fff;
+}
+
+/* Style for the 'Login' button */
+button {
+    width: 100%;
+    background-color: #8e44ad; /* Purple button */
+    color: white;
+    padding: 14px 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #732d91; /* Darker shade on hover */
+}
+
+/* Social login buttons */
+.social-login {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.social-login button {
+    width: 48%;
+    background-color: #333; /* Darker background for social login buttons */
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.social-login button:hover {
+    background-color: #444; /* Slightly lighter on hover */
+}
+
+/* 'Don't have an account?' link */
+.signup-link {
+    margin-top: 15px;
+    display: block;
+    color: #8e44ad; /* Purple link */
+    text-decoration: none;
+}
+
+.signup-link:hover {
+    text-decoration: underline;
+}
+
+/* Eye icon for password visibility */
+.password-eye {
+    position: absolute;
+    right: 20px;
+    top: 58%;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Language selector at the top right corner */
+.language-selector {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #fff;
+    font-size: 14px;
+}

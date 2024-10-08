@@ -1,0 +1,116 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #1E293B;
+    padding: 1rem;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.login,
+.get-access {
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.get-access {
+    background-color: #6D28D9;
+}
+
+/* Main Content */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.gradient-box {
+    background: radial-gradient(circle at center, #6D28D9, #3B82F6);
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+    width: 80%;
+    max-width: 900px;
+}
+
+.gradient-box h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.gradient-box p {
+    font-size: 1.25rem;
+    margin: 0.5rem 0;
+}
+
+.companies img {
+    margin: 0 0.5rem;
+    width: 50px;
+    height: 50px;
+}
+
+.buttons {
+    margin-top: 2rem;
+}
+
+.primary-btn,
+.secondary-btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    margin: 0 1rem;
+}
+
+.primary-btn {
+    background-color: #4F46E5;
+}
+
+.secondary-btn {
+    border: 2px solid #4F46E5;
+}

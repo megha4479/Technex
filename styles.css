@@ -61,29 +61,26 @@ body {
     background-color: #6D28D9;
 }
 
-/* Main Content */
+/* Main Content with Curved Gradient Background */
 .main-content {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 80vh;
-}
-
-.gradient-box {
     background: radial-gradient(circle at center, #6D28D9, #3B82F6);
-    padding: 3rem;
-    border-radius: 20px;
     text-align: center;
-    width: 80%;
-    max-width: 900px;
+    border-radius: 30px; /* Add rounded corners */
+    padding: 2rem;
+    max-width: 90%;
+    margin: 2rem auto;
 }
 
-.gradient-box h1 {
+.main-content h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
-.gradient-box p {
+.main-content p {
     font-size: 1.25rem;
     margin: 0.5rem 0;
 }

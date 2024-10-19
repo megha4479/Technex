@@ -1,0 +1,189 @@
+/* Apply gradient background with base and gradient colors */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle at top, #25244A 0%, #171933 70%);
+    height: 100vh;
+    color: white;
+}
+
+/* Navigation bar styles */
+nav {
+    background-color: #1D1C2E;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo styles */
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #9387E5;
+}
+
+/* Navbar options */
+.nav-options {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-options li {
+    margin-right: 20px;
+    font-size: 16px;
+}
+
+.nav-options li a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.nav-options li a:hover {
+    color: #9387E5;
+}
+
+/* Buttons for login and signup */
+.auth-buttons {
+    display: flex;
+}
+
+.auth-buttons a {
+    text-decoration: none;
+    color: white;
+    padding: 8px 20px;
+    margin-left: 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.login {
+    background-color: #9387E5;
+}
+
+.signup {
+    background-color: #FF6FCF;
+}
+
+.login:hover {
+    background-color: rgba(147, 135, 229, 0.8);
+}
+
+.signup:hover {
+    background-color: rgba(255, 111, 207, 0.8);
+}
+
+.center-content {
+    margin-top: 100px; /* Adjust to push content below navbar */
+    text-align: center;
+}
+
+.center-content h1 {
+    font-size: 70px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 0; /* Remove any bottom margin */
+    line-height: 1; /* Adjust this to reduce line spacing */
+}
+/* Center the content vertically and horizontally */
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* 100% of the viewport height */
+    text-align: center;
+    margin-top: -50px; /* Adjust this value to move the content slightly up */
+}
+
+/* Add an animation for the typing effect */
+.typing-animation {
+    font-size: 70px;
+    font-weight: bold;
+    color: white;
+    white-space: nowrap; /* Prevent the text from wrapping */
+    overflow: hidden; /* Hide the overflowing text */
+    border-right: 4px solid white; /* Create a cursor effect */
+    animation: typing 3.5s steps(30, end), blink 0.75s step-end infinite;
+}
+
+/* Typing effect */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 21ch; } /* Adjust this according to the length of the text */
+}
+
+/* Blinking cursor effect */
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+
+.center-content h2 {
+    font-size: 70px; /* Adjust size if needed */
+    font-weight: bold;
+    color: white;
+    margin-top: 0;
+    line-height: 1; /* Reduce line spacing */
+    
+}
+
+/* Subheading styles */
+/* Subheading styles */
+.center-content .subheading {
+    font-size: 22px; /* Increase the font size for readability */
+    font-family: 'Helvetica Neue', sans-serif; /* Use a modern, clean font */
+    color: #E0E0E0; /* Slightly lighter grey for contrast */
+    margin-top: 15px; /* Reduce space between h2 and subheading */
+    line-height: 1.6; /* Increase line height for readability */
+    max-width: 800px; /* Limit width for better content flow */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify; /* Align the text for a cleaner, professional look */
+    letter-spacing: 0.5px; /* Slightly increase the letter spacing for better readability */
+}
+
+.center-content h2 {
+    margin-bottom: 10px; /* Decrease space between h2 and subheading */
+}
+.subheading {
+    font-size: 22px; /* Adjust font size as needed */
+    font-family: 'Helvetica Neue', sans-serif; /* Modern font */
+    color: #E0E0E0; /* Lighter color for contrast */
+    font-style: italic; /* Italics */
+    text-align: justify; /* Justify alignment */
+    line-height: 1.6; /* Proper line spacing */
+    max-width: 800px; /* Limit width for readability */
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: 0.5px; /* Slight letter spacing for better readability */
+    position: relative;
+    padding: 20px; /* Optional padding for spacing */
+}
+
+/* Add double quotation marks before and after */
+.subheading::before {
+    content: open-quote;
+    font-size: 30px; /* Adjust size of the quotation marks */
+    position: absolute;
+    left: -20px; /* Positioning the opening quote */
+    top: -10px;
+    color: #E0E0E0; /* Same color as text */
+}
+
+.subheading::after {
+    content: close-quote;
+    font-size: 30px; /* Adjust size of the quotation marks */
+    position: absolute;
+    right: -20px; /* Positioning the closing quote */
+    bottom: -10px;
+    color: #E0E0E0; /* Same color as text */
+}
+
+

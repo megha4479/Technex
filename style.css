@@ -80,7 +80,7 @@ nav {
 }
 
 .center-content {
-    margin-top: 100px; /* Adjust to push content below navbar */
+    margin-top: 1px; /* Adjust to push content below navbar */
     text-align: center;
 }
 
@@ -99,7 +99,7 @@ nav {
     justify-content: center;
     height: 100vh; /* 100% of the viewport height */
     text-align: center;
-    margin-top: -50px; /* Adjust this value to move the content slightly up */
+    margin-top: -250px; /* Adjust this value to move the content slightly up */
 }
 
 /* Add an animation for the typing effect */
@@ -140,7 +140,7 @@ nav {
     font-size: 22px; /* Increase the font size for readability */
     font-family: 'Helvetica Neue', sans-serif; /* Use a modern, clean font */
     color: #E0E0E0; /* Slightly lighter grey for contrast */
-    margin-top: 15px; /* Reduce space between h2 and subheading */
+    margin-top: -500px; /* Reduce space between h2 and subheading */
     line-height: 1.6; /* Increase line height for readability */
     max-width: 800px; /* Limit width for better content flow */
     margin-left: auto;
@@ -150,7 +150,7 @@ nav {
 }
 
 .center-content h2 {
-    margin-bottom: 10px; /* Decrease space between h2 and subheading */
+    margin-bottom: -100px; /* Decrease space between h2 and subheading */
 }
 .subheading {
     font-size: 22px; /* Adjust font size as needed */
@@ -160,6 +160,7 @@ nav {
     text-align: justify; /* Justify alignment */
     line-height: 1.6; /* Proper line spacing */
     max-width: 800px; /* Limit width for readability */
+    margin-top: -250px; 
     margin-left: auto;
     margin-right: auto;
     letter-spacing: 0.5px; /* Slight letter spacing for better readability */

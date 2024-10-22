@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Editor</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Fira+Code:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #1e1e2f;
+            color: #c5c6c7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .jumbotron {
+            background-color: #2d2d3f;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.7);
+            width: 100%; /* Full width */
+            height: 100vh; /* Full height */
+            box-sizing: border-box; /* Include padding in height calculation */
+        }
+
+        .container {
+            display: flex;
+            height: 100%; /* Make the container take full height */
+        }
+
+        .problem-statement, .code-editor, .output {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 15px;
+            margin: 10px;
+            box-shadow: 0 0 15px rgba(155, 89, 182, 0.5);
+            display: flex;
+            flex-direction: column; /* Align items in a column */
+        }
+
+        .problem-statement {
+            background-color: #3a3f44;
+        }
+
+        .code-editor {
+            background-color: #1e1e2f;
+        }
+
+        #code-editor {
+            width: 100%;
+            height: calc(100% - 50px); /* Adjust height to account for button */
+            background-color: #2d2d3f;
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+            outline: none;
+            font-family: 'Fira Code', monospace;
+            border-radius: 10px;
+        }
+
+        #run-code {
+            width: 100%;
+            padding: 10px;
+            background-color: #9b59b6;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-family: 'Roboto', sans-serif;
+            border-radius: 10px;
+        }
+
+        .output {
+            background-color: #1e1e2f;
+            display: flex;
+            flex-direction: column;
+            flex: 1; /* Make output box take full height */
+        }
+
+        #output-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: #fff;
+            border-radius: 10px;
+            flex: 1; /* Make iframe take full height */
+        }
+
+        h2 {
+            font-family: 'Roboto', sans-serif;
+            color: #9b59b6;
+        }
+
+        p, ol, li {
+            font-family: 'Roboto', sans-serif;
+            color: #c5c6c7;
+        }
+    </style>
+</head>
+<body>
+    <div class="jumbotron">
+        <div class="container">
+            <!-- Problem Statement Section -->
+            <div class="problem-statement">
+                <h2><b> TO-DO LIST </b></h2>
+                <p>
+                    You're given some existing HTML for a Todo List app. Add the following functionality to the app:
+
+Add new tasks on clicking the "Submit" button.
+The INPUT field should be cleared upon successful addition.
+Remove tasks from the Todo List upon clicking the "Delete" button.
+                    <br>
+                    <h3> Requirements</h3>
+                    <ul>
+                        <li>The focus of this question is on functionality, not the styling. There's no need to write any custom CSS.</li>
+                        <BR>
+                        <li>You may modify the markup (e.g. adding ids, data attributes, replacing some tags, etc), but the result should remain the same visually..</li>     
+                        <BR>                  
+                        <li>You may want to think about ways to improve the user experience of the application and implement them (you get bonus credit for doing that during interviews).</li>
+                        <BR>
+                        <li>Implement filters to view only completed tasks, incomplete tasks, or all tasks.
+                            Add a sorting option to sort tasks by creation date or priority</li>
+                     
+                    </ul>
+                    
+                </p>
+            </div>
+
+            <!-- Code Editor Section -->
+            <div class="code-editor">
+                <h2>Code Editor</h2>
+                <textarea id="code-editor" placeholder="Write your code here..."></textarea>
+                <button id="run-code">Run Code</button>
+            </div>
+
+            <!-- Output Section -->
+            <div class="output">
+                <h2>Output</h2>
+                <iframe id="output-frame"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('run-code').addEventListener('click', () => {
+            const code = document.getElementById('code-editor').value;
+            const iframe = document.getElementById('output-frame');
+            
+            iframe.srcdoc = code;
+        });
+    </script>
+</body>
+</html>

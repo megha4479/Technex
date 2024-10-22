@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Editor</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Fira+Code:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #1e1e2f;
+            color: #c5c6c7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .jumbotron {
+            background-color: #2d2d3f;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.7);
+            width: 100%; /* Full width */
+            height: 100vh; /* Full height */
+            box-sizing: border-box; /* Include padding in height calculation */
+        }
+
+        .container {
+            display: flex;
+            height: 100%; /* Make the container take full height */
+        }
+
+        .problem-statement, .code-editor, .output {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 15px;
+            margin: 10px;
+            box-shadow: 0 0 15px rgba(155, 89, 182, 0.5);
+            display: flex;
+            flex-direction: column; /* Align items in a column */
+        }
+
+        .problem-statement {
+            background-color: #3a3f44;
+        }
+
+        .code-editor {
+            background-color: #1e1e2f;
+        }
+
+        #code-editor {
+            width: 100%;
+            height: calc(100% - 50px); /* Adjust height to account for button */
+            background-color: #2d2d3f;
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+            outline: none;
+            font-family: 'Fira Code', monospace;
+            border-radius: 10px;
+        }
+
+        #run-code {
+            width: 100%;
+            padding: 10px;
+            background-color: #9b59b6;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-family: 'Roboto', sans-serif;
+            border-radius: 10px;
+        }
+
+        .output {
+            background-color: #1e1e2f;
+            display: flex;
+            flex-direction: column;
+            flex: 1; /* Make output box take full height */
+        }
+
+        #output-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: #fff;
+            border-radius: 10px;
+            flex: 1; /* Make iframe take full height */
+        }
+
+        h2 {
+            font-family: 'Roboto', sans-serif;
+            color: #9b59b6;
+        }
+
+        p, ol, li {
+            font-family: 'Roboto', sans-serif;
+            color: #c5c6c7;
+        }
+    </style>
+</head>
+<body>
+    <div class="jumbotron">
+        <div class="container">
+            <!-- Problem Statement Section -->
+            <div class="problem-statement">
+                <h2><b> TRAFFIC LIGHT </b></h2>
+                <p>
+                    Build a traffic light where the lights switch from green to yellow to red after predetermined intervals and loop indefinitely. Each light should be lit for the following durations:
+                    <br>
+                    <h3> Requirements</h3>
+                    <ul>
+                        <li>Red light: 4000ms</li>
+                        <li>Yellow light: 500ms</li>              
+                        <li>Green light: 3000ms</li>
+                        <BR>
+                        <li>Make the traffic light design responsive to different screen sizes using CSS media queries. Ensure it scales well on mobile devices.</li>
+                        <LI>Use CSS animations (e.g., @keyframes) to smoothly transition between colors, simulating the light change without requiring JavaScript for basic visual effects.</LI>
+                        <li>Implement a toggle button using HTML input (checkbox) and CSS to switch between light and dark themes, modifying the background and traffic light appearance accordingly.</li>
+                        <li>Apply smooth CSS transitions (transition property) between the colors, making the change between lights more visually appealing.</li>
+                     
+                    </ul>
+                    
+                </p>
+            </div>
+
+            <!-- Code Editor Section -->
+            <div class="code-editor">
+                <h2>Code Editor</h2>
+                <textarea id="code-editor" placeholder="Write your code here..."></textarea>
+                <button id="run-code">Run Code</button>
+            </div>
+
+            <!-- Output Section -->
+            <div class="output">
+                <h2>Output</h2>
+                <iframe id="output-frame"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('run-code').addEventListener('click', () => {
+            const code = document.getElementById('code-editor').value;
+            const iframe = document.getElementById('output-frame');
+            
+            iframe.srcdoc = code;
+        });
+    </script>
+</body>
+</html>

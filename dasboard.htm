@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      background: radial-gradient(circle at center, #160329 0%, #070012 80%);
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: #1D1C2E;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Logo styles */
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #9387E5;
+    }
+
+    /* Navbar options */
+    .nav-options {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-options li {
+      margin-right: 20px;
+      font-size: 16px;
+    }
+
+    .nav-options li a {
+      text-decoration: none;
+      color: white;
+      transition: color 0.3s ease;
+    }
+
+    .nav-options li a:hover {
+      color: #9387E5;
+    }
+
+    /* Buttons for login and signup */
+    .auth-buttons {
+      display: flex;
+    }
+
+    .auth-buttons a {
+      text-decoration: none;
+      color: white;
+      padding: 8px 20px;
+      margin-left: 10px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+
+    .login {
+      background-color: #9387E5;
+    }
+
+    .signup {
+      background-color: #FF6FCF;
+    }
+
+    .login:hover {
+      background-color: rgba(147, 135, 229, 0.8);
+    }
+
+    .signup:hover {
+      background-color: rgba(255, 111, 207, 0.8);
+    }
+
+
+    .content {
+      display: flex;
+      justify-content: space-between;
+      padding: 2rem;
+    }
+
+    .sidebar {
+      width: 200px;
+      padding: 1rem;
+      background-color: #282c34;
+      border-radius: 8px;
+    }
+
+    .sidebar-title {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .sidebar-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar-list li {
+      margin-bottom: 8px;
+    }
+
+    .sidebar-list a {
+      display: block;
+      padding: 8px 16px;
+      background-color: #343a40;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .sidebar-list a:hover {
+      background-color: #495057;
+    }
+
+    .sidebar-list .new {
+      background-color: #070012;
+      color: #fff;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 1rem;
+    }
+
+    .main-title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .main-description {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .section {
+      background-color: #282c34;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-content {
+      font-size: 1rem;
+    }
+
+    .card-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      width: 230px;
+      padding: 1rem;
+      background-color: #343a40;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      text-align: center;
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-description {
+      font-size: 1rem;
+    }
+
+    .card-button {
+      background-color: #070012;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 16px;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    .card-button:hover {
+      background-color: #070012;
+    }
+
+    .cta-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      background-color: #282c34;
+      border-radius: 8px;
+      margin-top: 2rem;
+    }
+
+    .cta-text {
+      font-size: 1rem;
+      margin-right: 1rem;
+    }
+
+    .cta-button {
+      background-color: #070012;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 16px;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .cta-button:hover {
+      background-color: #070012;
+    }
+
+    .footer {
+      background-color: #282c34;
+      padding: 1rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .footer-links {
+      display: inline-block;
+      margin: 0 8px;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-copyright {
+      font-size: 0.8rem;
+      color: #808080;
+      margin-top: 8px;
+    }
+
+    .promo {
+      background-color: #333;
+      padding: 1em;
+      border: 1px solid #ddd;
+      margin-top: 20px;
+    }
+
+    .promo h2 {
+      margin-top: 0;
+    }
+
+    .secondary-button {
+      background-color: #070012;
+      color: #333;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .secondary-button:hover {
+      background-color: #ccc;
+    }
+
+    .discount {
+      background-color: #333;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    .dashboard {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #ffffff;
+    }
+
+    .filter-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+    }
+
+    .filter-dropdown {
+      background-color: #2a2b40;
+      border: none;
+      padding: 10px 15px;
+      color: #ffffff;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .questions {
+      margin-top: 20px;
+    }
+
+    .question-card {
+      background-color: #2a2b40;
+      padding: 15px 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    .question-card:hover {
+      background-color: #3a3b5a;
+    }
+
+    .question-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .question-info h2 {
+      margin: 0;
+      font-size: 18px;
+      color: #ffffff;
+    }
+
+    .question-info p {
+      margin: 5px 0 0;
+      font-size: 14px;
+      color: #b3b3cc;
+    }
+
+    .question-meta {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .difficulty {
+      background-color: #4caf50;
+      padding: 5px 10px;
+      border-radius: 5px;
+      margin-right: 15px;
+      color: #ffffff;
+    }
+
+    .difficulty.medium {
+      background-color: #ffc107;
+    }
+
+    .difficulty.hard {
+      background-color: #f44336;
+    }
+
+    .completed {
+      color: #b3b3cc;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="logo">TECHNEX</div>
+    <ul class="nav-options">
+      <li><a href="#">Option 1</a></li>
+      <li><a href="#">Option 2</a></li>
+      <li><a href="#">Option 3</a></li>
+      <li><a href="#">Option 4</a></li>
+      <li><a href="#">Option 5</a></li>
+      <li><a href="#">Option 6</a></li>
+    </ul>
+    <div class="auth-buttons">
+      <a href="#" class="login">LOGIN</a>
+      <a href="#" class="signup">SIGNUP</a>
+    </div>
+  </nav>
+  <div class="content">
+    <div class="sidebar">
+      <h2 class="sidebar-title">Prep dashboard</h2>
+      <ul class="sidebar-list">
+        <li><a href="#">Practice by framework</a></li>
+        <li><a href="#">Interview guides</a></li>
+        <li><a href="#">Study plans</a></li>
+        <li><a href="#">Focus areas</a></li>
+        <li><a href="#" class="new">Company guides</a></li>
+      </ul>
+      <div class="promo">
+        <h2>Giving away 20% off all plans!</h2>
+        <div class="discount">20% off</div>
+        <p>All plans, including lifetime</p>
+        <p>Complete simple tasks like following our social accounts to get 20% discount off!</p>
+        <button class="secondary-button">Check it out</button>
+      </div>
+      <div class="footer">
+
+        <p class="footer-copyright">©️ 2024 TECHNEX. All rights reserved.</p>
+      </div>
+    </div>
+    <div class="main-content">
+      <h1 class="main-title">Preparation dashboard</h1>
+      <p class="main-description">We recommend these 4 areas of learning to prepare you holistically for your front end
+        interview rounds. Explore guides and 200+ practice questions here.</p>
+      <div class="card-container">
+        <div class="card">
+          <i class="card-icon">
+            <>
+          </i>
+          <h3 class="card-title">Coding</h3>
+          <p class="card-description">3 subcategories of questions: JavaScript, User Interfaces & Data Structures and
+            Algorithms</p>
+        </div>
+        <div class="card">
+          <i class="card-icon">?</i>
+          <h3 class="card-title">Quiz</h3>
+          <p class="card-description">Trivia-style front end questions asked across all interview rounds</p>
+        </div>
+        <div class="card">
+          <i class="card-icon">🌐</i>
+          <h3 class="card-title">System Design</h3>
+          <p class="card-description">Design, architecture and optimization decisions for common front end apps</p>
+        </div>
+        <div class="card">
+          <i class="card-icon">💬</i>
+          <h3 class="card-title">Behavioral</h3>
+          <p class="card-description">Strategies to tackle the wide domain of behavioral interviews, specific to SWE</p>
+        </div>
+      </div>
+      <h2 class="main-title">Recommended focus areas</h2>
+      <div class="card-container">
+        <div class="card">
+          <i class="card-icon">🔄</i>
+          <h3 class="card-title">Async Operations</h3>
+        </div>
+        <div class="card">
+          <i class="card-icon">⛓️</i>
+          <h3 class="card-title">Data Structures & Algorithms</h3>
+        </div>
+        <div class="card">
+          <i class="card-icon">🖥️</i>
+          <h3 class="card-title">Design System Components</h3>
+        </div>
+        <div class="card">
+          <i class="card-icon">🧰</i>
+          <h3 class="card-title">Lodash Funct</h3>
+          <span class="card-button">471 online</span>
+          <button class="card-button">Feedback</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dashboard">
+    <div class="filter-bar">
+        <select class="filter-dropdown" onchange="filterQuestions(this.value)">
+            <option value="all">All</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+        </select>
+    </div>
+    <div class="questions">
+        <div class="question-card" data-difficulty="easy">
+            <div class="question-info">
+                <h2>Counter</h2>
+                <p>Build a simple counter that increments whenever a button is clicked.</p>
+            </div>
+            <div class="question-meta">
+                <span class="difficulty easy">Easy</span>
+                <span class="completed">19107 completed</span>
+            </div>
+        </div>
+        <div class="question-card" data-difficulty="easy">
+            <div class="question-info">
+                <h2>Make Counter</h2>
+                <p>Implement a function that returns a function to generate increasing values.</p>
+            </div>
+            <div class="question-meta">
+                <span class="difficulty easy">Easy</span>
+                <span class="completed">7102 completed</span>
+            </div>
+        </div>
+        <div class="question-card" data-difficulty="medium">
+            <div class="question-info">
+                <h2>Mean</h2>
+                <p>Implement a function that finds the mean of the values inside an array.</p>
+            </div>
+            <div class="question-meta">
+                <span class="difficulty medium">Medium</span>
+                <span class="completed">5197 completed</span>
+            </div>
+        </div>
+        <div class="question-card" data-difficulty="hard">
+            <div class="question-info">
+                <h2>Min By</h2>
+                <p>Implement a function that finds the minimum element based on the specified criteria.</p>
+            </div>
+            <div class="question-meta">
+                <span class="difficulty hard">Hard</span>
+                <span class="completed">2046 completed</span>
+            </div>
+        </div>
+        <!-- Add more question cards as needed -->
+    </div>
+</div>
+<div class="cta-container">
+  <span class="cta-text">See all →</span>
+  <button class="cta-button">Feedback</button>
+</div>
+<script>
+    function filterQuestions(difficulty) {
+        var cards = document.querySelectorAll('.question-card');
+        cards.forEach(function (card) {
+            if (difficulty === 'all' || card.getAttribute('data-difficulty') === difficulty) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+</script>
+</body>
+
+</html>

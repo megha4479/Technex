@@ -1,68 +1,44 @@
-/* General body styles */
-body {
+/* General Styles */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: 'Arial', sans-serif;
-    background-color: #121212; /* Dark background */
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a1a1a;
+}
+
+/* Container Styling */
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-/* Login box styling */
+/* Login Box Styling */
 .login-box {
-    background-color: #1c1c1c; /* Slightly lighter dark background for the box */
-    padding: 50px;
-    border-radius: 30px; /* Rounded corners */
-    box-shadow: 0 0 20px rgba(155, 89, 182, 0.6), /* Purple glow */
-                0 0 40px rgba(155, 89, 182, 0.5),
-                0 0 60px rgba(155, 89, 182, 0.4); /* Stronger glow for depth */
-    width: 400px; /* Width of the login box */
-    text-align: center;
+    background-color: #222;
+    padding: 40px 30px;
+    width: 400px;
+    border-radius: 30px;
     position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Border for slight contrast */
+    box-shadow: 0 0 30px rgba(155, 89, 182, 0.6); /* Purple glow */
 }
 
-/* Styling for the title 'Login' */
 .login-box h2 {
-    color: #ffffff;
-    font-size: 30px;
-    margin-bottom: 40px;
-}
-
-/* Styling for the input fields */
-input[type="email"],
-input[type="password"] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 10px 0 20px 0;
-    display: inline-block;
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Soft border */
-    border-radius: 5px;
-    box-sizing: border-box;
-    background-color: #333; /* Dark input fields */
     color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-/* Style for the 'Login' button */
-button {
-    width: 100%;
-    background-color: #8e44ad; /* Purple button */
-    color: white;
-    padding: 14px 20px;
-    margin-top: 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button:hover {
-    background-color: #732d91; /* Darker shade on hover */
-}
-
-/* Social login buttons */
+/* Social login buttons styling */
 .social-login {
     display: flex;
     justify-content: space-between;
@@ -71,44 +47,109 @@ button:hover {
 
 .social-login button {
     width: 48%;
-    background-color: #333; /* Darker background for social login buttons */
+    background-color: #333;
     border: none;
     color: white;
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.social-login button i {
+    margin-right: 8px;
 }
 
 .social-login button:hover {
-    background-color: #444; /* Slightly lighter on hover */
+    background-color: #444;
 }
 
-/* 'Don't have an account?' link */
-.signup-link {
-    margin-top: 15px;
+.google-btn {
+    background-color: #db4437;
+}
+
+.github-btn {
+    background-color: #333;
+}
+
+.google-btn:hover {
+    background-color: #c13c2f;
+}
+
+.github-btn:hover {
+    background-color: #444;
+}
+
+/* OR line styling */
+.or {
+    color: #bbb;
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Input field styling */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    color: #bbb;
     display: block;
-    color: #8e44ad; /* Purple link */
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+}
+
+.input-group input::placeholder {
+    color: #888;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #888;
+}
+
+/* Login Button Styling */
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #8e44ad;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #732d91;
+}
+
+/* Sign-up link styling */
+.signup-link {
+    text-align: center;
+    margin-top: 20px;
+    color: #bbb;
+}
+
+.signup-link a {
+    color: #8e44ad;
     text-decoration: none;
 }
 
-.signup-link:hover {
+.signup-link a:hover {
     text-decoration: underline;
-}
-
-/* Eye icon for password visibility */
-.password-eye {
-    position: absolute;
-    right: 20px;
-    top: 58%;
-    cursor: pointer;
-    color: rgba(255, 255, 255, 0.6);
-}
-
-/* Language selector at the top right corner */
-.language-selector {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    color: #fff;
-    font-size: 14px;
 }

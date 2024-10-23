@@ -3,35 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cursor Trail Effect</title>
+    <title>Elegant Cursor Trail Effect</title>
     <style>
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
             overflow: hidden;
-            background-color: black;
+            background-color: #1a1a1a;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
 
         .background {
             position: absolute;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 1) 50%);
+            background: radial-gradient(circle, rgba(128, 0, 128, 0.5), rgba(0, 0, 0, 1) 60%);
             pointer-events: none;
-            mix-blend-mode: lighten;
+            mix-blend-mode: screen;
             transition: background 0.2s ease-out;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 2s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
         }
     </style>
 </head>
 <body>
     <div class="background"></div>
+    <div class="fade-in">
+        <h1>Welcome to My Aesthetic Page</h1>
+        <p>Enjoy the illuminating effects as you move your cursor!</p>
+    </div>
     <script>
         document.addEventListener('mousemove', function(e) {
             const background = document.querySelector('.background');
             
             // Update background gradient position to follow the cursor
-            background.style.background = `radial-gradient(circle at ${e.clientX}px ${e.clientY}px, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 1) 50%)`;
+            background.style.background = `radial-gradient(circle at ${e.clientX}px ${e.clientY}px, rgba(128, 0, 128, 0.6), rgba(0, 0, 0, 1) 60%)`;
         });
 
         // Optional: To keep it dark when the cursor is stationary

@@ -354,13 +354,14 @@
       color: #ffffff;
     }
     .boxxxes {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #282a36;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(52, 58, 64, 0.6);; /* Background with transparency */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+}
     
     header {
         text-align: center;
@@ -372,12 +373,7 @@
         color: #ff79c6;
     }
     
-    .filters {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 20px;
-        justify-content: center;
-    }
+    
     
     .filter, .sort {
         background-color: #44475a;
@@ -388,17 +384,52 @@
         border-radius: 5px;
         font-size: 14px;
     }
-    
+
+
+.filter-container {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    background-color: #282a36;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filter-button {
+    background-color: #44475a;
+    color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.filter-button .arrow,
+.filter-button .filter-icon,
+.filter-button .sort-icon {
+    font-size: 12px;
+}
+
+.filter-button:hover {
+    background-color: #555b6e;
+}
+
+
+
     .sort {
         margin-left: auto;
     }
     
     .search-bar {
-        margin-bottom: 20px;
+      margin-top: 10px; 
+      margin-bottom: 10px;
     }
     
     .search-bar input {
-        width: 100%;
+        width: 600px;
         padding: 10px;
         border-radius: 5px;
         border: none;
@@ -420,14 +451,14 @@
     }
     
     .question {
-        background-color: #2a2b40;
+        background-color: #343a40;
         padding: 15px 20px;
         border-radius: 10px;
         transition: background-color 0.2s ease-in-out;
     }
     
     .question:hover {
-        background-color: #3a3b5a;
+        background-color: #343a40;
     }
     
     .question h2 {
@@ -525,29 +556,29 @@
         interview rounds. Explore guides and 200+ practice questions here.</p>
       <div class="card-container">
 
-        <a href="developers.html" class="card">
+        <div class="card">
           <i class="card-icon">
             <>
           </i>
           <h3 class="card-title">Coding</h3>
           <p class="card-description">3 subcategories of questions: JavaScript, User Interfaces & Data Structures and
             Algorithms</p>
-        </a>
-        <a href="developers.html" class="card">
+        </div>
+        <div class="card">
           <i class="card-icon">?</i>
           <h3 class="card-title">Quiz</h3>
           <p class="card-description">Trivia-style front end questions asked across all interview rounds</p>
-        </a>
-        <a href="developers.html" class="card">
+        </div>
+        <div class="card">
           <i class="card-icon">🌐</i>
           <h3 class="card-title">System Design</h3>
           <p class="card-description">Design, architecture and optimization decisions for common front end apps</p>
-        </a>
-        <a href="developers.html" class="card">
+        </div>
+        <div class="card">
           <i class="card-icon">💬</i>
           <h3 class="card-title">Behavioral</h3>
           <p class="card-description">Strategies to tackle the wide domain of behavioral interviews, specific to SWE</p>
-        </a>
+        </div>
       </div>
       <h2 class="main-title">Recommended focus areas</h2>
       <div class="card-container">
@@ -580,65 +611,108 @@
   </div>
   </div>
   <div class="boxxxes">
-    <div class="filters">
-        <button class="filter">JavaScript Utilities</button>
-        <button class="filter">User Interface</button>
-        <button class="filter">Data Structures & Algorithms</button>
-        <div class="dropdown">
-            <button>Company</button>
-            <button>Difficulty</button>
-            <button>Framework</button>
-            <button>Progress</button>
+    <div class="filter-container">
+      <button class="filter-button">Company <span class="arrow">&#9662;</span></button>
+      <button class="filter-button">Difficulty <span class="arrow">&#9662;</span></button>
+      <button class="filter-button">Framework <span class="arrow">&#9662;</span></button>
+      <button class="filter-button">Progress <span class="arrow">&#9662;</span></button>
+      <button class="filter-button">Sort by <span class="sort-icon">&#8801;</span></button>
+  </div>
+  <div class="filter-container">
+          <button class="filter-button" data-difficulty="easy">Easy</button>
+          <button class="filter-button" data-difficulty="medium">Medium</button>
+          <button class="filter-button" data-difficulty="hard">Hard</button>
+          <button class="filter-button" data-difficulty="all">All</button>
         </div>
-        <button class="sort">Sort by</button>
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search coding questions">
+  </div>
+
+  <!-- Questions List -->
+  <div class="questions-list" id="questionsList">
+    <div class="question" data-difficulty="easy">
+      <h2>Counter <span class="tag">Warm up question</span></h2>
+      <p>Build a simple counter that increments whenever a button is clicked.</p>
+      <div class="details">
+        <span class="difficulty easy">Easy</span>
+        <span class="technologies">React, Angular, Vue, Svelte, HTML5, CSS3</span>
+        <span class="completed">22302 completed</span>
+      </div>
     </div>
-    <div class="search-bar">
-        <input type="text" placeholder="Search coding questions">
+
+    <div class="question" data-difficulty="hard">
+      <h2>Make Counter</h2>
+      <p>Implement a function that accepts an integer value and returns a function that can be repeatedly called to return increasing values.</p>
+      <div class="details">
+        <span class="difficulty hard">Hard</span>
+        <span class="technologies">JavaScript, TypeScript</span>
+        <span class="completed">9382 completed</span>
+      </div>
     </div>
-    <div class="questions-summary">
-        <span>176 questions</span>
-        <span>57 hours total</span>
+
+    <div class="question" data-difficulty="easy">
+      <h2>Mean</h2>
+      <p>Implement a function that finds the mean of the values inside an array.</p>
+      <div class="details">
+        <span class="difficulty easy">Easy</span>
+        <span class="technologies">JavaScript, TypeScript</span>
+        <span class="completed">7310 completed</span>
+      </div>
     </div>
-    <div class="questions-list">
-        <div class="question">
-            <h2>Counter <span class="tag">Warm up question</span></h2>
-            <p>Build a simple counter that increments whenever a button is clicked.</p>
-            <div class="details">
-                <span class="difficulty easy">Easy</span>
-                <span class="technologies">React, Angular, Vue, Svelte, HTML5, CSS3</span>
-                <span class="completed">22302 completed</span>
-            </div>
-        </div>
-        <div class="question">
-            <h2>Make Counter</h2>
-            <p>Implement a function that accepts an integer value and returns a function that can be repeatedly called to return increasing values.</p>
-            <div class="details">
-                <span class="difficulty easy">Easy</span>
-                <span class="technologies">JavaScript, TypeScript</span>
-                <span class="completed">9382 completed</span>
-            </div>
-        </div>
-        <div class="question">
-            <h2>Mean</h2>
-            <p>Implement a function that finds the mean of the values inside an array.</p>
-            <div class="details">
-                <span class="difficulty easy">Easy</span>
-                <span class="technologies">JavaScript, TypeScript</span>
-                <span class="completed">7310 completed</span>
-            </div>
-        </div>
-        <div class="question">
-            <h2>Min By</h2>
-            <p>Implement a function that finds the minimum element based on the specified criteria.</p>
-            <div class="details">
-                <span class="difficulty easy">Easy</span>
-                <span class="technologies">JavaScript, TypeScript</span>
-                <span class="completed">2946 completed</span>
-            </div>
-        </div>
+
+    <div class="question" data-difficulty="medium">
+      <h2>Min By</h2>
+      <p>Implement a function that finds the minimum element based on the specified criteria.</p>
+      <div class="details">
+        <span class="difficulty medium">Medium</span>
+        <span class="technologies">JavaScript, TypeScript</span>
+        <span class="completed">2946 completed</span>
+      </div>
     </div>
+  </div>
+</div>
+</div>
 </div>
 
+<script>
+// JavaScript for filtering and searching
+
+// Filter functionality
+const filterButtons = document.querySelectorAll('.filter-button');
+const questionsList = document.querySelectorAll('.question');
+
+filterButtons.forEach(button => {
+button.addEventListener('click', () => {
+  const difficulty = button.getAttribute('data-difficulty');
+  
+  // Show all questions if 'All' is selected
+  questionsList.forEach(question => {
+    if (difficulty === 'all' || question.getAttribute('data-difficulty') === difficulty) {
+      question.style.display = 'block'; // Show question
+    } else {
+      question.style.display = 'none';  // Hide question
+    }
+  });
+});
+});
+
+// Search functionality
+const searchInput = document.getElementById('searchInput');
+
+searchInput.addEventListener('input', () => {
+const searchText = searchInput.value.toLowerCase();
+
+questionsList.forEach(question => {
+  const questionTitle = question.querySelector('h2').textContent.toLowerCase();
+
+  if (questionTitle.includes(searchText)) {
+    question.style.display = 'block'; // Show question if search matches
+  } else {
+    question.style.display = 'none';  // Hide question if no match
+  }
+});
+});
+</script>
 </body>
 
 </html>

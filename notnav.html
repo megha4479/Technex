@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search and Filter Section</title>
+    <style>
+        body {
+    background-color: #1e1e2e;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    color: #d1d1e9;
+}
+
+.filter-section {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #2d2d2d;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: #3c3c3c;
+    color: #fff;
+    flex: 1;
+}
+
+.filter-dropdown, .sort-dropdown {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: #3c3c3c;
+    color: #fff;
+}
+
+.filter-icon {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="filter-section">
+        <input type="text" placeholder="Search coding questions" class="search-input">
+        <select class="filter-dropdown">
+            <option>Company</option>
+        </select>
+        <select class="filter-dropdown">
+            <option>Difficulty</option>
+        </select>
+        <select class="filter-dropdown">
+            <option>Framework</option>
+        </select>
+        <select class="filter-dropdown">
+            <option>Progress</option>
+        </select>
+        <button class="filter-icon">🔍</button>
+        <select class="sort-dropdown">
+            <option>Sort by</option>
+        </select>
+    </div>
+</body>
+</html>

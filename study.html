@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABOUT US</title>
+    <style>/* Ensure .container is a flexbox */
+        .container {
+          display: flex;
+          gap: 20px;
+          /* Gap between boxxxes and the study plan card */
+          margin-top: 20px;
+        }
+        
+        /* Style for the study plan card */
+        .study-plan {
+          width: 300px;
+          padding: 20px;
+          background-color: rgba(52, 58, 64, 0.4);
+          border-radius: 8px;
+          text-align: center;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          transition: transform 0.2s, background-color 0.3s;
+        }
+        
+        .study-plan:hover {
+          transform: translateY(-10px);
+          background-color: rgba(52, 58, 64, 0.6);
+        }
+        
+        .study-plan .card-title {
+          font-size: 1.5rem;
+          font-weight: bold;
+          margin-bottom: 0.5rem;
+          color: #fff;
+        }
+        
+        .study-plan .card-description {
+          font-size: 1rem;
+          color: #d1d1d1;
+        }
+        
+        .study-plan .card-button {
+          background-color: rgba(7, 0, 18, 0.7);
+          border: none;
+          border-radius: 4px;
+          padding: 8px 16px;
+          color: #fff;
+          font-weight: bold;
+          cursor: pointer;
+        }
+        
+        .study-plan .card-button:hover {
+          background-color: rgba(7, 0, 18, 0.9);
+        }
+        </style>
+</head>
+<body>
+    <nav>
+      <!-- Navbar content -->
+    </nav>
+  
+    <div class="content">
+      <!-- Sidebar and main content here -->
+  
+      <div class="main-content">
+        <!-- Existing content -->
+  
+        <!-- Container for boxxxes and new card -->
+        <div class="container">
+          <!-- Existing boxxxes container -->
+          <div class="boxxxes">
+            <!-- Existing content of boxxxes -->
+            <div class="filters">
+              <button class="filter">JavaScript Utilities</button>
+              <button class="filter">User Interface</button>
+              <button class="filter">Data Structures & Algorithms</button>
+              <div class="dropdown">
+                <button>Company</button>
+                <button>Difficulty</button>
+                <button>Framework</button>
+                <button>Progress</button>
+              </div>
+              <button class="sort">Sort by</button>
+            </div>
+            <div class="search-bar">
+              <input type="text" placeholder="Search coding questions">
+            </div>
+            <div class="questions-summary">
+              <span>176 questions</span>
+              <span>57 hours total</span>
+            </div>
+            <div class="questions-list">
+              <!-- Questions List -->
+              <div class="question">
+                <h2>Counter <span class="tag">Warm up question</span></h2>
+                <p>Build a simple counter that increments whenever a button is clicked.</p>
+                <div class="details">
+                  <span class="difficulty easy">Easy</span>
+                  <span class="technologies">React, Angular, Vue, Svelte, HTML5, CSS3</span>
+                  <span class="completed">22302 completed</span>
+                </div>
+              </div>
+              <!-- More questions -->
+            </div>
+          </div>
+  
+          <!-- New Study Plan card beside the boxxxes -->
+          <div class="card study-plan">
+            <h3 class="card-title">Study Plan</h3>
+            <p class="card-description">Track your progress and follow a structured study plan.</p>
+            <button class="card-button">View Plan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  </html>

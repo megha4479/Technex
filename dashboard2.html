@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      background: radial-gradient(circle at center, #000000 0%, #000000 100%);
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: #1D1C2E;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 98%;
+      z-index: 1000;
+      /* Ensure navbar stays on top */
+    }
+
+    /* Logo styles */
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #9387E5;
+    }
+
+    /* Navbar options */
+    .nav-options {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-options li {
+      margin-right: 20px;
+      font-size: 16px;
+    }
+
+    .nav-options li a {
+      text-decoration: none;
+      color: white;
+      transition: color 0.3s ease;
+    }
+
+    .nav-options li a:hover {
+      color: #9387E5;
+    }
+
+    /* Buttons for login and signup */
+    .auth-buttons {
+      display: flex;
+    }
+
+    .auth-buttons a {
+      text-decoration: none;
+      color: white;
+      padding: 8px 20px;
+      margin-left: 10px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+
+    .login {
+      background-color: #9387E5;
+    }
+
+    .signup {
+      background-color: #FF6FCF;
+    }
+
+    .login:hover {
+      background-color: rgba(147, 135, 229, 0.8);
+    }
+
+    .signup:hover {
+      background-color: rgba(255, 111, 207, 0.8);
+    }
+
+
+    .content {
+      display: flex;
+      justify-content: space-between;
+      padding: 2rem;
+    }
+
+    .sidebar {
+      width: 200px;
+      padding: 1rem;
+      background-color: #282c34;
+      border-radius: 8px;
+      position: fixed;
+      /* Fixes the sidebar */
+      top: 60px;
+      z-index: 500;
+      bottom: 0;
+      left: 0;
+      overflow-y: auto;
+      /* Enables scrolling if content overflows */
+    }
+
+    .content {
+      display: flex;
+      margin-left: 220px;
+      /* Adjust this to match sidebar width + padding */
+      padding: 2rem;
+    }
+
+    .sidebar-title {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .sidebar-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar-list li {
+      margin-bottom: 8px;
+    }
+
+    .sidebar-list a {
+      display: block;
+      padding: 8px 16px;
+      background-color: #343a40;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .sidebar-list a:hover {
+      background-color: #495057;
+    }
+
+    .sidebar-list .new {
+      background-color: #070012;
+      color: #fff;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 1rem;
+    }
+
+    .main-title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .main-description {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .section {
+      background-color: #282c34;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-content {
+      font-size: 1rem;
+    }
+
+    .card-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    /* Existing card styles */
+    .card {
+      width: 230px;
+      padding: 1rem;
+      background-color: rgba(52, 58, 64, 0.4);
+      /* Transparent background */
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      text-align: center;
+      overflow: hidden;
+      transition: transform 0.2s, background-color 0.3s;
+      backdrop-filter: blur(10px);
+      /* Optional: glassmorphism effect with background blur */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      /* Soft shadow for depth */
+      text-decoration: none;
+      /* Remove underline */
+      color: inherit;
+    }
+
+    /* Hover effect for transparent cards */
+    .card:hover {
+      transform: translateY(-10px);
+      background-color: rgba(52, 58, 64, 0.6);
+      /* Slightly darker on hover */
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: #fff;
+      /* Ensure text color is readable */
+    }
+
+    .card-description {
+      font-size: 1rem;
+      color: #d1d1d1;
+      /* Light color for better contrast with transparent background */
+    }
+
+    .card-button {
+      background-color: rgba(7, 0, 18, 0.7);
+      /* Button with semi-transparent background */
+      border: none;
+      border-radius: 4px;
+      padding: 8px 16px;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    .card-button:hover {
+      background-color: rgba(7, 0, 18, 0.9);
+      /* Slightly darker on hover */
+    }
+
+    /* Sidebar cards */
+
+
+
+    .cta-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      background-color: #282c34;
+      border-radius: 8px;
+      margin-top: 2rem;
+    }
+
+    .cta-text {
+      font-size: 1rem;
+      margin-right: 1rem;
+    }
+
+    .cta-button {
+      background-color: #070012;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 16px;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .cta-button:hover {
+      background-color: #070012;
+    }
+
+    .footer {
+      background-color: #282c34;
+      padding: 1rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .footer-links {
+      display: inline-block;
+      margin: 0 8px;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-copyright {
+      font-size: 0.8rem;
+      color: #808080;
+      margin-top: 8px;
+    }
+
+    .promo {
+      background-color: #333;
+      padding: 1em;
+      border: 1px solid #ddd;
+      margin-top: 20px;
+    }
+
+    .promo h2 {
+      margin-top: 0;
+    }
+
+    .secondary-button {
+      background-color: #070012;
+      color: #333;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .secondary-button:hover {
+      background-color: #ccc;
+    }
+
+    .discount {
+      background-color: #333;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    .dashboard {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #ffffff;
+    }
+
+    .boxxxes {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: rgba(52, 58, 64, 0.6);
+      ;
+      /* Background with transparency */
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #ff79c6;
+    }
+
+
+
+    .filter,
+    .sort {
+      background-color: #44475a;
+      border: none;
+      padding: 10px 15px;
+      color: #ffffff;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+
+    .filter-container {
+      display: flex;
+      gap: 10px;
+      padding: 20px;
+      background-color: #282a36;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .filter-button {
+      background-color: #44475a;
+      color: #ffffff;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .filter-button .arrow,
+    .filter-button .filter-icon,
+    .filter-button .sort-icon {
+      font-size: 12px;
+    }
+
+    .filter-button:hover {
+      background-color: #555b6e;
+    }
+
+
+
+    .sort {
+      margin-left: auto;
+    }
+
+    .search-bar {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .search-bar input {
+      width: 600px;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      background-color: #44475a;
+      color: #ffffff;
+    }
+
+    .questions-summary {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .questions-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .questions-list a { text-decoration: none; color: inherit; }
+
+    .question {
+      background-color: #343a40;
+      padding: 15px 20px;
+      border-radius: 10px;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    .question:hover {
+      background-color: #343a40;
+    }
+
+    .question h2 {
+      margin: 0;
+      font-size: 18px;
+      color: #ffffff;
+    }
+
+    .question p {
+      margin: 5px 0 10px;
+      font-size: 14px;
+      color: #b3b3cc;
+    }
+
+    .details {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+    }
+
+    .details span {
+      margin-right: 15px;
+    }
+
+    .difficulty {
+      background-color: #4caf50;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    .difficulty.medium {
+      background-color: #ffc107;
+    }
+
+    .difficulty.hard {
+      background-color: #f44336;
+    }
+
+    .completed {
+      color: #b3b3cc;
+    }
+
+    .tag {
+      background-color: #190933;
+      padding: 3px 5px;
+      border-radius: 3px;
+      margin-left: 10px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="logo">TECHNEX</div>
+    <ul class="nav-options">
+      <li><a href="#">Option 1</a></li>
+      <li><a href="#">Option 2</a></li>
+      <li><a href="#">Option 3</a></li>
+      <li><a href="#">Option 4</a></li>
+      <li><a href="#">Option 5</a></li>
+      <li><a href="#">Option 6</a></li>
+    </ul>
+    <div class="auth-buttons">
+      <a href="#" class="login">LOGIN</a>
+      <a href="#" class="signup">SIGNUP</a>
+    </div>
+  </nav>
+  <div class="content">
+    <div class="sidebar">
+      <h2 class="sidebar-title">Prep dashboard</h2>
+      <ul class="sidebar-list">
+        <li><a href="#">Practice by framework</a></li>
+        <li><a href="#">Interview guides</a></li>
+        <li><a href="#">Study plans</a></li>
+        <li><a href="#">Focus areas</a></li>
+        <li><a href="#" class="new">Company guides</a></li>
+      </ul>
+      <div class="promo">
+        <h2>Giving away 20% off all plans!</h2>
+        <div class="discount">20% off</div>
+        <p>All plans, including lifetime</p>
+        <p>Complete simple tasks like following our social accounts to get 20% discount off!</p>
+        <button class="secondary-button">Check it out</button>
+      </div>
+      <div class="footer">
+
+        <p class="footer-copyright">© 2024 TECHNEX. All rights reserved.</p>
+      </div>
+    </div>
+    <div class="main-content">
+      <h1 class="main-title">Preparation dashboard</h1>
+      <p class="main-description">We recommend these 4 areas of learning to prepare you holistically for your front end
+        interview rounds. Explore guides and 200+ practice questions here.</p>
+      <div class="card-container">
+
+        <div class="card">
+          <i class="card-icon">
+            <>
+          </i>
+          <h3 class="card-title">Coding</h3>
+          <p class="card-description">3 subcategories of questions: JavaScript, User Interfaces & Data Structures and
+            Algorithms</p>
+        </div>
+        <div class="card">
+          <i class="card-icon">?</i>
+          <h3 class="card-title">Quiz</h3>
+          <p class="card-description">Trivia-style front end questions asked across all interview rounds</p>
+        </div>
+        <div class="card">
+          <i class="card-icon">🌐</i>
+          <h3 class="card-title">System Design</h3>
+          <p class="card-description">Design, architecture and optimization decisions for common front end apps</p>
+        </div>
+        <div class="card">
+          <i class="card-icon">💬</i>
+          <h3 class="card-title">Behavioral</h3>
+          <p class="card-description">Strategies to tackle the wide domain of behavioral interviews, specific to SWE</p>
+        </div>
+      </div>
+      <h2 class="main-title">Recommended focus areas</h2>
+      <div class="card-container">
+        <!-- Card for Async Operations -->
+        <a href="async_operations.html" class="card">
+          <i class="card-icon">🔄</i>
+          <h3 class="card-title">Async Operations</h3>
+        </a>
+
+        <!-- Card for Data Structures & Algorithms -->
+        <a href="data.html" class="card">
+          <i class="card-icon">⛓️</i>
+          <h3 class="card-title">Data Structures & Algorithms</h3>
+        </a>
+
+        <!-- Card for Design System Components -->
+        <a href="design_system_components.html" class="card">
+          <i class="card-icon">🖥️</i>
+          <h3 class="card-title">Design System Components</h3>
+        </a>
+
+        <!-- Card for Lodash Functions -->
+        <a href="lodash_functions.html" class="card">
+          <i class="card-icon">🧰</i>
+          <h3 class="card-title">Lodash Funct</h3>
+        </a>
+      </div>
+
+    </div>
+  </div>
+  </div>
+  <div class="boxxxes">
+    <div class="filter-container">
+      <button class="filter-button">Company <span class="arrow">&#9662;</span></button>
+      <button class="filter-button">Difficulty <span class="arrow">&#9662;</span></button>
+      <button class="filter-button">Framework <span class="arrow">&#9662;</span></button>
+      <button class="filter-button">Progress <span class="arrow">&#9662;</span></button>
+      <button class="filter-button">Sort by <span class="sort-icon">&#8801;</span></button>
+    </div>
+    <div class="filter-container">
+      <button class="filter-button" data-difficulty="easy">Easy</button>
+      <button class="filter-button" data-difficulty="medium">Medium</button>
+      <button class="filter-button" data-difficulty="hard">Hard</button>
+      <button class="filter-button" data-difficulty="all">All</button>
+    </div>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search coding questions">
+    </div>
+
+    <!-- Questions List -->
+    <div class="questions-list" id="questionsList">
+      <a href="ques.html" target="_blank"> <!-- Link for the CLICK-BUTTON question -->
+        <div class="question" data-difficulty="easy">
+          <h2>CLICK-BUTTON <span class="tag">Warm up question</span></h2>
+          <p>Make the text within the button display the number of times the button has been clicked.</p>
+          <div class="details">
+            <span class="difficulty easy">Easy</span>
+            <span class="technologies">React, Angular, Vue, Svelte, HTML5, CSS3</span>
+            <span class="completed">22302 completed</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="ques1.html" target="_blank"> <!-- Link for the Make Counter question -->
+        <div class="question" data-difficulty="hard">
+          <h2>Make Counter</h2>
+          <p>Implement a function makeCounter that accepts an optional integer value and returns a function. When the
+            returned function is called initially, it returns the initial value if provided, otherwise 0...</p>
+          <div class="details">
+            <span class="difficulty hard">Hard</span>
+            <span class="technologies">JavaScript, TypeScript</span>
+            <span class="completed">9382 completed</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="ques2.html" target="_blank"> <!-- Link for the Mortgage Calculator question -->
+        <div class="question" data-difficulty="medium">
+          <h2>Motorgage Calculator</h2>
+          <p>Build a simple mortgage calculator widget that takes in a loan amount, interest rate, loan term, and
+            calculates the monthly mortgage payment, total payment amount, and total interest paid.</p>
+          <div class="details">
+            <span class="difficulty easy">Medium</span>
+            <span class="technologies">JavaScript, TypeScript</span>
+            <span class="completed">7310 completed</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="ques3.html" target="_blank"> <!-- Link for the Contact Form question -->
+        <div class="question" data-difficulty="medium">
+          <h2>CONTACT-FORM</h2>
+          <p>Building forms is a common task in Front End. In this exercise, we will build a basic "Contact Us" form...
+          </p>
+          <div class="details">
+            <span class="difficulty medium">Medium</span>
+            <span class="technologies">JavaScript, TypeScript</span>
+            <span class="completed">2946 completed</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="ques4.html" target="_blank"> <!-- Link for the To-Do List question -->
+        <div class="question" data-difficulty="easy">
+          <h2>To-DO LIST</h2>
+          <p>You're given some existing HTML for a Todo List app. Add the following functionality to the app:</p>
+          <div class="details">
+            <span class="difficulty easy">Easy</span>
+            <span class="technologies">JavaScript, TypeScript</span>
+            <span class="completed">2946 completed</span>
+          </div>
+        </div>
+      </a>
+      <a href="ques5.html" target="_blank"> <!-- Link for the Make Counter question -->
+        <div class="question" data-difficulty="hard">
+          <h2>TRAFFIC-LIGHT</h2>
+          <p>Build a traffic light where the lights switch from green to yellow to red after predetermined intervals and loop indefinitely. Each light should be lit for the following durations:.</p>
+          <div class="details">
+            <span class="difficulty hard">Hard</span>
+            <span class="technologies">JavaScript, TypeScript</span>
+            <span class="completed">9382 completed</span>
+          </div>
+        </div>
+      </a>
+    </div>
+   
+
+  </div>
+  </div>
+  </div>
+  </div>
+  
+
+  <script>
+    // JavaScript for filtering and searching
+
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const questionsList = document.querySelectorAll('.question');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const difficulty = button.getAttribute('data-difficulty');
+
+        // Show all questions if 'All' is selected
+        questionsList.forEach(question => {
+          if (difficulty === 'all' || question.getAttribute('data-difficulty') === difficulty) {
+            question.style.display = 'block'; // Show question
+          } else {
+            question.style.display = 'none';  // Hide question
+          }
+        });
+      });
+    });
+
+    // Search functionality
+    const searchInput = document.getElementById('searchInput');
+
+    searchInput.addEventListener('input', () => {
+      const searchText = searchInput.value.toLowerCase();
+
+      questionsList.forEach(question => {
+        const questionTitle = question.querySelector('h2').textContent.toLowerCase();
+
+        if (questionTitle.includes(searchText)) {
+          question.style.display = 'block'; // Show question if search matches
+        } else {
+          question.style.display = 'none';  // Hide question if no match
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

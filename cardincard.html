@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Practice Dashboard</title>
+    <style>body {
+        background-color: #1e1e2e;
+        color: #d1d1e9;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 20px;
+    }
+    
+    .boxxxes {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #282a36;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    header h1 {
+        margin: 0;
+        color: #ff79c6;
+    }
+    
+    .filters {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+        justify-content: center;
+    }
+    
+    .filter, .sort {
+        background-color: #44475a;
+        border: none;
+        padding: 10px 15px;
+        color: #ffffff;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+    
+    .sort {
+        margin-left: auto;
+    }
+    
+    .search-bar {
+        margin-bottom: 20px;
+    }
+    
+    .search-bar input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        background-color: #44475a;
+        color: #ffffff;
+    }
+    
+    .questions-summary {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        font-size: 14px;
+    }
+    
+    .questions-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .question {
+        background-color: #2a2b40;
+        padding: 15px 20px;
+        border-radius: 10px;
+        transition: background-color 0.2s ease-in-out;
+    }
+    
+    .question:hover {
+        background-color: #3a3b5a;
+    }
+    
+    .question h2 {
+        margin: 0;
+        font-size: 18px;
+        color: #ffffff;
+    }
+    
+    .question p {
+        margin: 5px 0 10px;
+        font-size: 14px;
+        color: #b3b3cc;
+    }
+    
+    .details {
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+    }
+    
+    .details span {
+        margin-right: 15px;
+    }
+    
+    .difficulty {
+        background-color: #4caf50;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+    
+    .difficulty.medium {
+        background-color: #ffc107;
+    }
+    
+    .difficulty.hard {
+        background-color: #f44336;
+    }
+    
+    .completed {
+        color: #b3b3cc;
+    }
+    
+    .tag {
+        background-color: #190933;
+        padding: 3px 5px;
+        border-radius: 3px;
+        margin-left: 10px;
+        font-size: 12px;
+    }
+    </style>
+</head>
+<body>
+    <div class="boxxxes">
+        <div class="filters">
+            <button class="filter">JavaScript Utilities</button>
+            <button class="filter">User Interface</button>
+            <button class="filter">Data Structures & Algorithms</button>
+            <div class="dropdown">
+                <button>Company</button>
+                <button>Difficulty</button>
+                <button>Framework</button>
+                <button>Progress</button>
+            </div>
+            <button class="sort">Sort by</button>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search coding questions">
+        </div>
+        <div class="questions-summary">
+            <span>176 questions</span>
+            <span>57 hours total</span>
+        </div>
+        <div class="questions-list">
+            <div class="question">
+                <h2>Counter <span class="tag">Warm up question</span></h2>
+                <p>Build a simple counter that increments whenever a button is clicked.</p>
+                <div class="details">
+                    <span class="difficulty easy">Easy</span>
+                    <span class="technologies">React, Angular, Vue, Svelte, HTML5, CSS3</span>
+                    <span class="completed">22302 completed</span>
+                </div>
+            </div>
+            <div class="question">
+                <h2>Make Counter</h2>
+                <p>Implement a function that accepts an integer value and returns a function that can be repeatedly called to return increasing values.</p>
+                <div class="details">
+                    <span class="difficulty easy">Easy</span>
+                    <span class="technologies">JavaScript, TypeScript</span>
+                    <span class="completed">9382 completed</span>
+                </div>
+            </div>
+            <div class="question">
+                <h2>Mean</h2>
+                <p>Implement a function that finds the mean of the values inside an array.</p>
+                <div class="details">
+                    <span class="difficulty easy">Easy</span>
+                    <span class="technologies">JavaScript, TypeScript</span>
+                    <span class="completed">7310 completed</span>
+                </div>
+            </div>
+            <div class="question">
+                <h2>Min By</h2>
+                <p>Implement a function that finds the minimum element based on the specified criteria.</p>
+                <div class="details">
+                    <span class="difficulty easy">Easy</span>
+                    <span class="technologies">JavaScript, TypeScript</span>
+                    <span class="completed">2946 completed</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

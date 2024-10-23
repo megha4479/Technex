@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+
+
+	<link rel="apple-touch-icon" type="image/png"
+		href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+
+	<meta name="apple-mobile-web-app-title" content="CodePen">
+
+	<link rel="shortcut icon" type="image/x-icon"
+		href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+	<link rel="mask-icon" type="image/x-icon"
+		href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg"
+		color="#111" />
+
+
+
+
+
+
+	<title>CodePen - Terms of Services UI Design</title>
+
+	<link rel="canonical" href="https://codepen.io/RajRajeshDn/pen/zYmKmLP">
+
+
+
+
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap');
+
+		:root {
+			--bg-clr: #0f041e;
+			--white: #fff;
+			--title-clr: #394168;
+			--pry-text-clr: #b3b3b3;
+			--scn-text-clr: #838384;
+			--btn-hvr-clr: #5363b0;
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			list-style: none;
+			font-family: 'Roboto', sans-serif;
+		}
+
+		body {
+			background: var(--bg-clr);
+			font-size: 12px;
+			line-height: 20px;
+			color: var(--primary-text-clr);
+			padding: 0 20px;
+		}
+
+		.flex_center {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.tc_main {
+			margin: 20px 0;
+			width: 500px;
+			max-width: 100%;
+			height: 550px;
+			background: var(--white);
+			text-align: center;
+		}
+
+		.tc_main .title {
+			color: var(--title-clr);
+			margin-bottom: 5px;
+			font-size: 24px;
+			line-height: 32px;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		.tc_main .tc_content .tc_bottom .title {
+			font-size: 18px;
+			line-height: 26px;
+		}
+
+		.tc_main .tc_content {
+			width: 100%;
+			margin: 35px 0;
+			height: calc(550px - 150px);
+		}
+
+		.tc_main .tc_btns {
+			width: 100%;
+			height: 80px;
+			padding: 21px 0;
+			box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+		}
+
+		.tc_main .tc_content .tc_top {
+			margin: 0 35px 35px;
+		}
+
+		.tc_main .tc_content .tc_bottom {
+			padding: 0 35px;
+			overflow: auto;
+			height: calc(100% - 210px);
+		}
+
+		.tc_main .tc_content .tc_top .icon {
+			font-size: 42px;
+			text-align: center;
+			margin-bottom: 10px;
+			color: var(--title-clr);
+		}
+
+		.tc_main .tc_content .tc_top .info {
+			color: var(--scn-text-clr);
+		}
+
+		.tc_main .tc_content .tc_bottom .info p {
+			margin-bottom: 10px;
+		}
+
+		.tc_main .tc_btns button {
+			width: 125px;
+			padding: 10px;
+			margin: 0 10px;
+			border: 0;
+			cursor: pointer;
+			border-radius: 3px;
+			transition: all 0.5s ease;
+		}
+
+		.tc_main .tc_btns button.accept {
+			background: var(--title-clr);
+			color: var(--white);
+		}
+
+		.tc_main .tc_btns button.decline {
+			border: 1px solid var(--title-clr);
+			background: transparent;
+			color: var(--title-clr);
+		}
+
+		.tc_main .tc_btns button.decline:hover {
+			background: var(--title-clr);
+			color: var(--white);
+		}
+
+		.tc_main .tc_btns button.accept:hover {
+			background: var(--btn-hvr-clr);
+		}
+	</style>
+
+
+
+
+</head>
+
+<body translate="no">
+	<script src="https://kit.fontawesome.com/3ef3559250.js" crossorigin="anonymous"></script>
+
+	<section class="flex_center">
+		<div class="tc_main">
+			<div class="tc_content">
+				<div class="tc_top">
+					<div class="icon">
+						<i class="fa-solid fa-clipboard"></i>
+					</div>
+					<div class="title">
+						<p>Terms of serivce</p>
+					</div>
+					<div class="info">
+						Welcome to TechNex!
+						Our Terms & Conditions create a legal relationship between you and us.
+
+						Here's what you can expect from them:
+
+						1.Essential information for using TechNex.
+						2.Your rights as our valued customer.
+						3.Guidance to respect copyright and avoid infringement.
+						4.Restrictions on using Goodnotes in harmful or undesirable ways.
+						5.As we improve and evolve our services, we'll do our best to notify you before any changes to
+						these terms take effect. Keep in mind that new terms may apply when uploaded to our site.
+
+						Thank you for choosing TechNex!
+					</div>
+				</div>
+				<div class="tc_bottom">
+					<div class="title">
+						<p>please go through the terms before Accepting it.</p>
+					</div>
+					<div class="info">
+						<p>Termly: Termly provides a free mobile app terms and conditions template that you can download
+							and customize for your app in minutes1</p>
+						<p>TermsFeed: TermsFeed offers a free terms and conditions generator that can help you create a
+							basic yet complete terms and conditions agreement for your app or website</p>
+						<p>Mobile App Terms & Conditions Template: TermsFeed also provides a sample mobile app terms and
+							conditions template that you can use to set out the rules and restrictions for anyone who
+							uses your mobile app</p>
+						<p>Basic terms
+							1.You are responsible for keeping your login and password safe.
+							2.The Service should not be used to store sensitive information such as bank account
+							numbers, credit card information, or passwords.
+							3.We are not responsible for any information stored with the Service</p>
+						<p>General terms
+							1.We reserve the right to modify or terminate the Service for any reason, without notice at
+							any time.
+							2.We reserve the right to alter these Terms of Use at any time. If there are any changes to
+							these Terms of Use, users will be notified.
+							3.We reserve the right to refuse service to anyone for any reason at any time.</p>
+						<p>We do not permit you to create a profile if you are under 16 years of age. If you are under
+							16, please refrain from attempting to register for an account with the TechNex Services.
+							But if you're the family, parent or a guardian, you can create a Goodnotes account for your
+							child.
+							After you complete the profile creation process, your profile will be activated for the
+							relevant TechNex Services, unless your profile is not accepted due to not meeting the
+							criteria required for creating an account (for example, you are not old enough or are
+							prohibited from using the TechNex Services).</p>
+					</div>
+				</div>
+			</div>
+			<div class="tc_btns">
+				<button class="accept">
+					Accept
+				</button>
+				<button class="decline">
+					Decline
+				</button>
+			</div>
+		</div>
+	</section>
+
+
+
+	<script
+		src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-44fe83e49b63affec96918c9af88c0d80b209a862cf87ac46bc933074b8c557d.js"></script>
+</body>
+
+</html>

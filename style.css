@@ -1065,5 +1065,163 @@ nav {
     }
 }
 
+/* Pricing Section Styles */
+.pricing-section {
+    text-align: center;
+    padding: 40px 20px 80px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    background: linear-gradient(180deg, #332961 0%, #0c0c17 25%, #0c0c17 100%);
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #ffffff;
+}
+
+.pricing-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.pricing-description {
+    font-size: 18px;
+    color: #cccccc;
+    max-width: 800px;
+    margin: 0 auto 30px;
+}
+
+.discount-banner, .ppp-banner {
+    display: flex;
+    align-items: center;
+    background-color: #1c1b29;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.discount-info {
+    flex: 1;
+    text-align: left;
+}
+
+.discount-badge {
+    background-color: #8b5cf6;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.check-out-link {
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: #1c1b29;
+    border: 1px solid #6b6bff;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.ppp-icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.lifetime-plan {
+    display: flex;
+    gap: 20px;
+    background-color: #1c1b29;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(128, 90, 213, 0.3);
+    margin-top: 20px;
+}
+
+.plan-details {
+    flex: 2;
+    text-align: left;
+    color: #cccccc;
+}
+
+.plan-details h4 {
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.offer-tag {
+    background-color: #c084fc;
+    color: #1c1b29;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.benefits-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0 0;
+}
+
+.benefits-list li {
+    padding: 8px 0;
+    font-size: 16px;
+}
+
+.pricing-box {
+    flex: 1;
+    text-align: center;
+    background-color: #2a2a42;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #6b6bff;
+    font-size: 14px;
+}
+
+.discounted-price {
+    font-size: 32px;
+    color: #ffffff;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.buy-now-button {
+    display: inline-block;
+    background-color: #a78bfa;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.buy-now-button:hover {
+    background-color: #936bf6;
+}
+
+.promo-note {
+    font-size: 12px;
+    color: #cccccc;
+    margin-top: 10px;
+}
+
+.promo-note a {
+    color: #a78bfa;
+    text-decoration: none;
+}
+
+.promo-note a:hover {
+    text-decoration: underline;
+}
+
+
+
 
 

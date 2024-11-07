@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="container">
@@ -19,15 +19,15 @@
 
             <div class="or">- OR -</div>
 
-            <form>
+            <form id="loginForm">
                 <div class="input-group">
                     <label for="email">Email Address</label>
-                    <input type="email" id="email" placeholder="Email Address">
+                    <input type="email" id="email" placeholder="Email Address" required>
                 </div>
 
                 <div class="input-group">
                     <label for="password">Password</label>
-                    <input type="password" id="password" placeholder="Password">
+                    <input type="password" id="password" placeholder="Password" required>
                 </div>
 
                 <button type="submit" class="login-btn">Login</button>
@@ -36,5 +36,8 @@
             <p class="signup-link">Don't have an account? <a href="signup.html">Sign up</a></p>
         </div>
     </div>
+
+    <script src="login.js"></script>
 </body>
 </html>
+

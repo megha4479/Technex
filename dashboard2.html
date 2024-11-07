@@ -515,6 +515,85 @@
       margin-left: 10px;
       font-size: 12px;
     }
+    #subscriptionPopup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup-content {
+      background-color: #282c34;
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 400px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .popup-content h2 {
+      margin-bottom: 1rem;
+    }
+
+    .popup-content p {
+      margin-bottom: 2rem;
+    }
+
+    .popup-button {
+      background-color: #1D1C2E;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .popup-button:hover {
+      background-color: #2a1645;
+    }
+
+    .thank-you {
+      display: none;
+      color: #644081;
+      font-weight: bold;
+    }
+    .technologies {
+  font-weight: bold;
+  color: #1D1C2E;
+}
+.technology-buttons {
+      display: flex;
+      gap: 10px; /* Space between buttons */
+      flex-wrap: wrap; /* Wrap buttons if space is tight */
+    }
+
+    .technology-button {
+      background-color: #1D1C2E;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .technology-button:hover {
+      background-color: #17073c;
+    }
+
+    /* Optional: You can add some styles for the button text */
+    .technology-button:focus {
+      outline: none;
+    }
+
   </style>
 </head>
 
@@ -525,7 +604,7 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="dashboard2.html">dashboard</a></li>
       <li><a href="#">blog</a></li>
-      <li><a href="#">Tech+</a></li>
+      <li><a href="Techplus.html">Tech+</a></li>
       <li><a href="developers.html">About us</a></li>
       <li><a href="#">Option 6</a></li>
     </ul>
@@ -542,7 +621,7 @@
         <li><a href="project guides.html">Interview guides</a></li>
         <li><a href="#">Study plans</a></li>
         <li><a href="#">Focus areas</a></li>
-        <li><a href="#" class="new">Company guides</a></li>
+        <li><a href="Techplus.html" class="new">Tech+</a></li>
       </ul>
       <div class="promo">
         <h2>Giving away 20% off all plans!</h2>
@@ -636,18 +715,7 @@
 
     <!-- Questions List -->
     <div class="questions-list" id="questionsList">
-      <a href="ques4.html" target="_blank"> <!-- Link for the CLICK-BUTTON question -->
-        <div class="question" data-difficulty="easy">
-          <h2>CLICK-BUTTON <span class="tag">Warm up question</span></h2>
-          <p>Make the text within the button display the number of times the button has been clicked.</p>
-          <div class="details">
-            <span class="difficulty easy">Easy</span>
-            <span class="technologies">React, Angular, Vue, Svelte, HTML5, CSS3</span>
-            <span class="completed">22302 completed</span>
-          </div>
-        </div>
-      </a>
-
+      
       <a href="ques1.html" target="_blank"> <!-- Link for the Make Counter question -->
         <div class="question" data-difficulty="hard">
           <h2>Make Counter</h2>
@@ -655,7 +723,12 @@
             returned function is called initially, it returns the initial value if provided, otherwise 0...</p>
           <div class="details">
             <span class="difficulty hard">Hard</span>
-            <span class="technologies">JavaScript, TypeScript</span>
+            <div class="technology-buttons">
+              <button class="technology-button">JavaScript</button>
+  
+              <button class="technology-button">TypeScript</button>
+            
+            </div>
             <span class="completed">9382 completed</span>
           </div>
         </div>
@@ -668,7 +741,12 @@
             calculates the monthly mortgage payment, total payment amount, and total interest paid.</p>
           <div class="details">
             <span class="difficulty easy">Medium</span>
-            <span class="technologies">JavaScript, TypeScript</span>
+            <div class="technology-buttons">
+              <button class="technology-button">JavaScript</button>
+  
+              <button class="technology-button">TypeScript</button>
+            
+            </div>
             <span class="completed">7310 completed</span>
           </div>
         </div>
@@ -681,7 +759,12 @@
           </p>
           <div class="details">
             <span class="difficulty medium">Medium</span>
-            <span class="technologies">JavaScript, TypeScript</span>
+            <div class="technology-buttons">
+              <button class="technology-button">JavaScript</button>
+  
+              <button class="technology-button">TypeScript</button>
+            
+            </div>
             <span class="completed">2946 completed</span>
           </div>
         </div>
@@ -693,7 +776,12 @@
           <p>You're given some existing HTML for a Todo List app. Add the following functionality to the app:</p>
           <div class="details">
             <span class="difficulty easy">Easy</span>
-            <span class="technologies">JavaScript, TypeScript</span>
+            <div class="technology-buttons">
+              <button class="technology-button">JavaScript</button>
+  
+              <button class="technology-button">TypeScript</button>
+            
+            </div>
             <span class="completed">2946 completed</span>
           </div>
         </div>
@@ -704,11 +792,47 @@
           <p>Build a traffic light where the lights switch from green to yellow to red after predetermined intervals and loop indefinitely. Each light should be lit for the following durations:.</p>
           <div class="details">
             <span class="difficulty hard">Hard</span>
-            <span class="technologies">JavaScript, TypeScript</span>
+            <div class="technology-buttons">
+              <button class="technology-button">JavaScript</button>
+  
+              <button class="technology-button">TypeScript</button>
+            
+            </div>
             <span class="completed">9382 completed</span>
           </div>
         </div>
       </a>
+      <!-- Subscription Popup -->
+  <div id="subscriptionPopup">
+    <div class="popup-content">
+      <h2>Subscribe to Access Questions</h2>
+      <p>This question is part of our premium content. Please subscribe to unlock it.</p>
+      <button class="popup-button" onclick="subscribe()">Subscribe Now</button>
+      <p class="thank-you">Thank you for subscribing! You can now access this question.</p>
+    </div>
+  </div>
+
+  <!-- Updated Question Links with onclick attribute to show popup -->
+  <div class="questions-list" id="questionsList">
+    <a href="ques4.html" target="_blank" class="question-link" onclick="showPopup(event, 'ques4')">
+      <div class="question" data-difficulty="easy">
+        <h2>CLICK-BUTTON <span class="tag">Tech+</span></h2>
+        <p>Make the text within the button display the number of times the button has been clicked.</p>
+        <div class="details">
+          <span class="difficulty easy">Easy</span>
+          <div class="technology-buttons">
+            <button class="technology-button">React</button>
+
+            <button class="technology-button">HTML5</button>
+            <button class="technology-button">CSS3</button>
+          </div>
+          <span class="completed">22302 completed</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Add similar onclick events to other questions here -->
+  </div>
     </div>
    
 
@@ -756,6 +880,32 @@
         }
       });
     });
+
+    // Function to show the subscription popup
+    function showPopup(event, questionId) {
+      event.preventDefault();
+
+      // Check if the question is already unlocked
+      if (localStorage.getItem('subscribed') === 'true') {
+        window.location.href = questionId + '.html';
+      } else {
+        document.getElementById('subscriptionPopup').style.display = 'flex';
+        document.querySelector('.thank-you').style.display = 'none';
+      }
+    }
+
+    // Function to simulate subscription and unlock questions
+    function subscribe() {
+      // Simulate a successful subscription
+      localStorage.setItem('subscribed', 'true');
+
+      // Show thank you message and close popup after a delay
+      document.querySelector('.thank-you').style.display = 'block';
+      setTimeout(() => {
+        document.getElementById('subscriptionPopup').style.display = 'none';
+      }, 2000);
+    }
+    
   </script>
 </body>
 

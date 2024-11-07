@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Editor with Certificate Generation</title>
+    <title>Code Editor with Certificate Generation and Confetti</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script> <!-- Confetti Library -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Fira+Code:wght@400;700&display=swap');
 
@@ -94,18 +95,16 @@
         }
 
         h2 {
-            font-family: 'Roboto', sans-serif;
             color: #9b59b6;
         }
 
         p, ul, li {
-            font-family: 'Roboto', sans-serif;
             color: #c5c6c7;
         }
 
         /* Certificate Modal Styles */
         .certificate-modal {
-            display: none; /* Hidden by default */
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -117,17 +116,13 @@
             z-index: 10;
         }
 
-        .certificate-content {
+        .certificate-template {
+            width: 700px;
             background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            width: 600px;
+            padding: 30px;
+            border-radius: 15px;
             text-align: center;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-        }
-
-        .certificate-content h2 {
-            color: #9b59b6;
         }
 
         .close-button {
@@ -146,21 +141,20 @@
         <div class="container">
             <!-- Problem Statement Section -->
             <div class="problem-statement">
-                <h2><b> TRAFFIC LIGHT </b></h2>
+                <h2>TRAFFIC LIGHT</h2>
                 <p>
-                    Build a traffic light where the lights switch from green to yellow to red after predetermined intervals and loop indefinitely. Each light should be lit for the following durations:
-                    <br>
-                    <h3> Requirements</h3>
-                    <ul>
-                        <li>Red light: 4000ms</li>
-                        <li>Yellow light: 500ms</li>              
-                        <li>Green light: 3000ms</li>
-                        <li>Make the traffic light design responsive to different screen sizes using CSS media queries.</li>
-                        <li>Use CSS animations to smoothly transition between colors, simulating the light change without JavaScript.</li>
-                        <li>Implement a toggle button to switch between light and dark themes.</li>
-                        <li>Apply smooth CSS transitions between colors for a visually appealing effect.</li>
-                    </ul>
+                    Build a traffic light where the lights switch from green to yellow to red after predetermined intervals and loop indefinitely.
                 </p>
+                <h3>Requirements:</h3>
+                <ul>
+                    <li>Red light: 4000ms</li>
+                    <li>Yellow light: 500ms</li>
+                    <li>Green light: 3000ms</li>
+                    <li>Responsive design using CSS media queries</li>
+                    <li>Use CSS animations for transitions</li>
+                    <li>Toggle between light and dark themes</li>
+                    <li>Smooth CSS transitions between lights</li>
+                </ul>
             </div>
 
             <!-- Code Editor Section -->
@@ -180,13 +174,13 @@
 
     <!-- Certificate Modal Section -->
     <div class="certificate-modal" id="certificateModal">
-        <div class="certificate-content" id="certificateContent">
-            <h2>Certificate of Completion</h2>
-            <p>Presented to</p>
-            <h3 id="studentName">[Your Name]</h3>
-            <p>for successfully completing the course</p>
+        <div class="certificate-template">
+            <h2>Certificate of Appreciation</h2>
+            <p>This certificate is proudly presented to:</p>
+            <h3 id="certificateStudentName">[Student Name]</h3>
+            <p>for successfully completing first TEN questions of</p>
             <h3>Web Development Basics</h3>
-            <p>Date: <span id="date"></span></p>
+            <p>Date: <span id="certificateDate"></span></p>
             <button class="close-button" onclick="closeCertificate()">Close</button>
         </div>
     </div>
@@ -197,31 +191,34 @@
             var code = document.getElementById('code-editor').value;
             var iframe = document.getElementById('output-frame');
             iframe.srcdoc = code;
-            
-            // Optional: Trigger certificate generation after code submission
-            generateCertificate();
+
+            // Show certificate after code submission
+            showCertificate();
         });
 
-        // Function to generate and display certificate
-        function generateCertificate() {
+        // Show certificate modal with confetti
+        function showCertificate() {
             const modal = document.getElementById('certificateModal');
             const name = prompt("Enter your name for the certificate:");
 
-            // Populate certificate with dynamic data
             if (name) {
-                document.getElementById('studentName').innerText = name;
-                document.getElementById('date').innerText = new Date().toLocaleDateString();
-
-                // Display the certificate modal
+                document.getElementById('certificateStudentName').innerText = name;
+                document.getElementById('certificateDate').innerText = new Date().toLocaleDateString();
                 modal.style.display = 'flex';
+
+                // Trigger confetti when certificate is shown
+                confetti({
+                    particleCount: 150,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
             }
         }
 
-        // Function to close the certificate modal
+        // Close the certificate modal
         function closeCertificate() {
             document.getElementById('certificateModal').style.display = 'none';
         }
     </script> 
 </body>
 </html>
-

@@ -1,0 +1,39 @@
+{
+    "features": [
+      {
+        "icon": "ss4.webp",
+        "title": "Popular Frameworks",
+        "description": "Learn popular front-end frameworks with practical examples and step-by-step guidance.",
+        "items": [
+          "React",
+          "Vue",
+          "Angular",
+          "Svelte"
+        ]
+      },
+      {
+        "icon": "ss5.webp",
+        "title": "Solutions by Experts",
+        "description": "Get solutions and explanations provided by experienced engineers and interviewers.",
+        "items": [
+          "In-depth explanations",
+          "Code snippets",
+          "Best practices"
+        ]
+      },
+      {
+        "icon": "ss6.webp",
+        "title": "Interview Prep",
+        "description": "Prepare for interviews with challenges and questions based on real scenarios.",
+        "items": [
+          "Real interview questions",
+          "Mock interview environment",
+          "Detailed feedback"
+        ]
+      }
+      
+    ]
+    
+    
+  }
+  

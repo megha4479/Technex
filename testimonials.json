@@ -1,0 +1,24 @@
+{
+    "testimonials": [
+      {
+        "companyLogo": "path/to/microsoft-logo.png",
+        "companyInfo": "Offer from Microsoft",
+        "offerDate": "Apr 2024",
+        "testimonialText": "Initially practiced a few free questions on the platform, loved the UI and bought a lifetime subscription. It contains interview-level JS and React ready for practice. Didn't see this much quality of questions anywhere. Thanks @greatfrontend.",
+        "authorPhoto": "path/to/author1.png",
+        "authorName": "Ed Wang",
+        "authorRole": "Principal UX Engineer, San Francisco, US"
+      },
+      {
+        "companyLogo": "path/to/cloudflare-logo.png",
+        "companyInfo": "Offer from Cloudflare",
+        "offerDate": "Jun 2024",
+        "testimonialText": "GFE gave me guardrails on how to focus my studying. I achieved a 17% increase in base pay and 46% total compensation at Cloudflare! Thank you, GFE!",
+        "authorPhoto": "path/to/author2.png",
+        "authorName": "Deewee",
+        "authorRole": "Software Engineer, Remote"
+      }
+       
+    ]
+  }
+  

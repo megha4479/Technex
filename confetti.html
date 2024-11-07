@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Editor</title>
+    <title>Code Editor with Confetti</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Fira+Code:wght@400;700&display=swap');
 
@@ -20,14 +20,14 @@
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0 0 20px rgba(155, 89, 182, 0.7);
-            width: 100%; /* Full width */
-            height: 100vh; /* Full height */
-            box-sizing: border-box; /* Include padding in height calculation */
+            width: 100%;
+            height: 100vh;
+            box-sizing: border-box;
         }
 
         .container {
             display: flex;
-            height: 100%; /* Make the container take full height */
+            height: 100%;
         }
 
         .problem-statement, .code-editor, .output {
@@ -38,7 +38,7 @@
             margin: 10px;
             box-shadow: 0 0 15px rgba(155, 89, 182, 0.5);
             display: flex;
-            flex-direction: column; /* Align items in a column */
+            flex-direction: column;
         }
 
         .problem-statement {
@@ -51,7 +51,7 @@
 
         #code-editor {
             width: 100%;
-            height: calc(100% - 50px); /* Adjust height to account for button */
+            height: calc(100% - 50px);
             background-color: #2d2d3f;
             color: #ffffff;
             border: none;
@@ -80,7 +80,7 @@
             background-color: #1e1e2f;
             display: flex;
             flex-direction: column;
-            flex: 1; /* Make output box take full height */
+            flex: 1;
         }
 
         #output-frame {
@@ -89,7 +89,7 @@
             border: none;
             background-color: #fff;
             border-radius: 10px;
-            flex: 1; /* Make iframe take full height */
+            flex: 1;
         }
 
         h2 {
@@ -108,29 +108,23 @@
         <div class="container">
             <!-- Problem Statement Section -->
             <div class="problem-statement">
-                <h2><b>CONTACT FORM</b></h2>
+                <h2><b>MAKE COUNTER</b></h2>
                 <p>
-                    Building forms is a common task in Front End. In this exercise, we will build a basic "Contact Us" form, commonly seen on marketing websites for visitors to ask questions or provide feedback.
+                    Implement a function makeCounter that accepts an optional integer value and returns a function. When the returned function is called initially, it returns the initial value if provided, otherwise 0. The returned function can be called repeatedly to return 1 more than the return value of the previous invocation.
                     <br>
-                    <h3> Requirements</h3>
-                    <ul>
-                        <li>The form should contain the following elements: </li>
-                        <ul>
-                            <li>Name field.</li>
-                            <li>Email field.</li>
-                            <li>Message field. Since the message can be long, a textarea will be more suitable.</li>
-                            <li>Submit button</li>
-                            <li> Contains the text "Send".</li>
-                            <li>Clicking on the submit button submits the form.</li>
-                        </ul>
-                        <br>
-                        <li>The form and submission should be implemented entirely in HTML. Do not use any JavaScript or framework-specific features for this question.</li>
-                        <br>
-                        <li>There is no need to do any client-side validation on the fields. Validation will be done on the server side.</li>
-                        <br>
-                     
-                    </ul>
-                    
+                    <br>
+                    <h3> Examples</h3>
+                    <ol>
+                        <li>const counter = makeCounter();
+                            <p>counter(); // 0 </p>
+                            <p>counter(); // 1</p>
+                            <p>counter(); // 2</p></li>
+                        <li>const counter = makeCounter(5);
+                            <p>counter(); // 5 </p>
+                            <p>counter(); // 6</p>
+                            <p>counter(); // 7 </p>
+                        </li>
+                    </ol>
                 </p>
             </div>
 
@@ -148,14 +142,43 @@
             </div>
         </div>
     </div>
+    
+    <!-- Canvas Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 
     <script>
         document.getElementById('run-code').addEventListener('click', function() {
-            var code = document.getElementById('code-editor').value;
-            var iframe = document.getElementById('output-frame');
+            const code = document.getElementById('code-editor').value;
+            const iframe = document.getElementById('output-frame');
             
-            iframe.srcdoc = code;
+            try {
+                // Create a function from the code in the editor
+                const makeCounter = new Function(code + ' return makeCounter;')();
+
+                // Test the function with example cases
+                const counter1 = makeCounter();
+                const counter2 = makeCounter(5);
+
+                if (counter1() === 0 && counter1() === 1 && counter2() === 5 && counter2() === 6) {
+                    alert("Correct solution! Confetti will be shown.");
+                    triggerConfetti(); // Show confetti
+                } else {
+                    alert("Incorrect solution. Try again.");
+                }
+            } catch (error) {
+                alert("Error in code: " + error.message);
+            }
         });
+
+        // Function to trigger confetti
+        function triggerConfetti() {
+            confetti({
+                particleCount: 150,
+                spread: 60,
+                origin: { y: 0.6 }
+            });
+        }
     </script>
 </body>
 </html>
+

@@ -148,9 +148,9 @@ Remove tasks from the Todo List upon clicking the "Delete" button.
     </div>
 
     <script>
-        document.getElementById('run-code').addEventListener('click', () => {
-            const code = document.getElementById('code-editor').value;
-            const iframe = document.getElementById('output-frame');
+        document.getElementById('run-code').addEventListener('click', function() {
+            var code = document.getElementById('code-editor').value;
+            var iframe = document.getElementById('output-frame');
             
             iframe.srcdoc = code;
         });

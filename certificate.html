@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Editor</title>
+    <title>Code Editor with Certificate Generation</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Fira+Code:wght@400;700&display=swap');
 
+        /* General Styles */
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #1e1e2f;
@@ -20,14 +21,14 @@
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0 0 20px rgba(155, 89, 182, 0.7);
-            width: 100%; /* Full width */
-            height: 100vh; /* Full height */
-            box-sizing: border-box; /* Include padding in height calculation */
+            width: 100%;
+            height: 100vh;
+            box-sizing: border-box;
         }
 
         .container {
             display: flex;
-            height: 100%; /* Make the container take full height */
+            height: 100%;
         }
 
         .problem-statement, .code-editor, .output {
@@ -38,7 +39,7 @@
             margin: 10px;
             box-shadow: 0 0 15px rgba(155, 89, 182, 0.5);
             display: flex;
-            flex-direction: column; /* Align items in a column */
+            flex-direction: column;
         }
 
         .problem-statement {
@@ -51,7 +52,7 @@
 
         #code-editor {
             width: 100%;
-            height: calc(100% - 50px); /* Adjust height to account for button */
+            height: calc(100% - 50px);
             background-color: #2d2d3f;
             color: #ffffff;
             border: none;
@@ -80,7 +81,7 @@
             background-color: #1e1e2f;
             display: flex;
             flex-direction: column;
-            flex: 1; /* Make output box take full height */
+            flex: 1;
         }
 
         #output-frame {
@@ -89,7 +90,7 @@
             border: none;
             background-color: #fff;
             border-radius: 10px;
-            flex: 1; /* Make iframe take full height */
+            flex: 1;
         }
 
         h2 {
@@ -97,9 +98,46 @@
             color: #9b59b6;
         }
 
-        p, ol, li {
+        p, ul, li {
             font-family: 'Roboto', sans-serif;
             color: #c5c6c7;
+        }
+
+        /* Certificate Modal Styles */
+        .certificate-modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .certificate-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 600px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .certificate-content h2 {
+            color: #9b59b6;
+        }
+
+        .close-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #9b59b6;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -117,14 +155,11 @@
                         <li>Red light: 4000ms</li>
                         <li>Yellow light: 500ms</li>              
                         <li>Green light: 3000ms</li>
-                        <BR>
-                        <li>Make the traffic light design responsive to different screen sizes using CSS media queries. Ensure it scales well on mobile devices.</li>
-                        <LI>Use CSS animations (e.g., @keyframes) to smoothly transition between colors, simulating the light change without requiring JavaScript for basic visual effects.</LI>
-                        <li>Implement a toggle button using HTML input (checkbox) and CSS to switch between light and dark themes, modifying the background and traffic light appearance accordingly.</li>
-                        <li>Apply smooth CSS transitions (transition property) between the colors, making the change between lights more visually appealing.</li>
-                     
+                        <li>Make the traffic light design responsive to different screen sizes using CSS media queries.</li>
+                        <li>Use CSS animations to smoothly transition between colors, simulating the light change without JavaScript.</li>
+                        <li>Implement a toggle button to switch between light and dark themes.</li>
+                        <li>Apply smooth CSS transitions between colors for a visually appealing effect.</li>
                     </ul>
-                    
                 </p>
             </div>
 
@@ -143,13 +178,50 @@
         </div>
     </div>
 
+    <!-- Certificate Modal Section -->
+    <div class="certificate-modal" id="certificateModal">
+        <div class="certificate-content" id="certificateContent">
+            <h2>Certificate of Completion</h2>
+            <p>Presented to</p>
+            <h3 id="studentName">[Your Name]</h3>
+            <p>for successfully completing the course</p>
+            <h3>Web Development Basics</h3>
+            <p>Date: <span id="date"></span></p>
+            <button class="close-button" onclick="closeCertificate()">Close</button>
+        </div>
+    </div>
+
     <script>
+        // Run code functionality
         document.getElementById('run-code').addEventListener('click', function() {
             var code = document.getElementById('code-editor').value;
             var iframe = document.getElementById('output-frame');
-            
             iframe.srcdoc = code;
+            
+            // Optional: Trigger certificate generation after code submission
+            generateCertificate();
         });
+
+        // Function to generate and display certificate
+        function generateCertificate() {
+            const modal = document.getElementById('certificateModal');
+            const name = prompt("Enter your name for the certificate:");
+
+            // Populate certificate with dynamic data
+            if (name) {
+                document.getElementById('studentName').innerText = name;
+                document.getElementById('date').innerText = new Date().toLocaleDateString();
+
+                // Display the certificate modal
+                modal.style.display = 'flex';
+            }
+        }
+
+        // Function to close the certificate modal
+        function closeCertificate() {
+            document.getElementById('certificateModal').style.display = 'none';
+        }
     </script> 
 </body>
 </html>
+

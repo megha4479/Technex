@@ -29,7 +29,7 @@ body {
     width: 400px;
     border-radius: 30px;
     position: relative;
-    box-shadow: 0 0 30px rgba(155, 89, 182, 0.6); /* Purple glow */
+    box-shadow: 0 0 30px #9387E5; /* Purple glow */
 }
 
 .signup-box h2 {
@@ -125,7 +125,7 @@ body {
 .signup-btn {
     width: 100%;
     padding: 10px;
-    background-color: #8e44ad;
+    background-color:#9387E5;
     color: white;
     border: none;
     border-radius: 5px;
@@ -135,7 +135,7 @@ body {
 }
 
 .signup-btn:hover {
-    background-color: #732d91;
+    background-color: #9387E5;
 }
 
 /* Login link styling */
@@ -146,7 +146,7 @@ body {
 }
 
 .login-link a {
-    color: #8e44ad;
+    color: #9387E5;
     text-decoration: none;
 }
 

@@ -42,24 +42,22 @@
         </div>
     </div>
 
-    <!-- Inline JavaScript for Debugging -->
+    <!-- Inline JavaScript to handle form submission and redirection -->
     <script>
         document.getElementById("signupForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent form submission for validation
+            event.preventDefault(); // Prevents form submission for validation
 
-            const emailInput = document.getElementById("email");
-            const email = emailInput.value;
+            // Get email value from the form
+            const email = document.getElementById("email").value;
 
-            // Debugging test: Check if the event listener works
-            alert("Form submitted! Checking email...");
+            // Store the email in local storage
+            localStorage.setItem("userEmail", email);
 
-            // Simple email regex pattern to validate email format
-            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            // Display a message to the user
+            alert("Account created successfully! Logged in as: " + email);
 
-         
-
-            // If email is valid
-            alert("Email is valid! Form will now submit.");
+            // Redirect to the homepage
+            window.location.href = "index.html"; // Replace with the actual path of your homepage
         });
     </script>
 </body>

@@ -10,6 +10,6 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     // Display a message to the user
     alert("Logged in as: " + email);
 
-    // Optionally redirect to another page
-    // window.location.href = "homepage.html";
+    // Redirect to the homepage
+    window.location.href = "index.html"; // Replace with the actual path of your homepage
 });

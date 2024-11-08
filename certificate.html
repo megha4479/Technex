@@ -192,8 +192,8 @@
             var iframe = document.getElementById('output-frame');
             iframe.srcdoc = code;
 
-            // Show certificate after code submission
-            showCertificate();
+            // Delay certificate display to ensure output is generated first
+            setTimeout(showCertificate, 2000); // Adjust time as needed
         });
 
         // Show certificate modal with confetti

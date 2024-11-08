@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Editor with Certificate Generation and Confetti</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script> <!-- Confetti Library -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Fira+Code:wght@400;700&display=swap');
+
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #1e1e2f;
+            color: #c5c6c7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .jumbotron {
+            background-color: #2d2d3f;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.7);
+            width: 100%;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            height: 100%;
+        }
+
+        .problem-statement, .code-editor, .output {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 15px;
+            margin: 10px;
+            box-shadow: 0 0 15px rgba(155, 89, 182, 0.5);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .problem-statement {
+            background-color: #3a3f44;
+        }
+
+        .code-editor {
+            background-color: #1e1e2f;
+        }
+
+        #code-editor {
+            width: 100%;
+            height: calc(100% - 50px);
+            background-color: #2d2d3f;
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+            outline: none;
+            font-family: 'Fira Code', monospace;
+            border-radius: 10px;
+        }
+
+        #run-code {
+            width: 100%;
+            padding: 10px;
+            background-color: #9b59b6;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-family: 'Roboto', sans-serif;
+            border-radius: 10px;
+        }
+
+        .output {
+            background-color: #1e1e2f;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        #output-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: #fff;
+            border-radius: 10px;
+            flex: 1;
+        }
+
+        h2 {
+            color: #9b59b6;
+        }
+
+        p, ul, li {
+            color: #c5c6c7;
+        }
+
+        /* Certificate Modal Styles */
+        .certificate-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .certificate-template {
+            width: 700px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .close-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #9b59b6;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="jumbotron">
+        <div class="container">
+            <!-- Problem Statement Section -->
+            <div class="problem-statement">
+                <h2><b>Mortgage Calculator</b></h2>
+                <p>
+                    Build a simple mortgage calculator widget that takes in a loan amount, interest rate, loan term, and calculates the monthly mortgage payment, total payment amount, and total interest paid.
+                    <br>
+                    <h3> Requirements</h3>
+                    <ul>
+                        <li>The user should be able to enter:</li>
+                        <ul>
+                            <li>Loan amount ($)</li>
+                            <li>Annual interest rate (%). This is also known as the annual percentage rate (APR).</li>
+                            <li>Loan term (in years)</li>
+                            <li>Using the inputs, the calculator should compute the following and display the results to the user:</li>
+                            <li> Monthly mortgage payment</li>
+                            <li>Total payment amount</li>
+                            <li>Total interest paid</li>
+                        </ul>
+                        <br>
+                        <li>If a non-numerical string is entered into any input field, the calculator should display an error message. Additionally, the calculator should handle any other invalid inputs that may arise.</li>                        <li>Round the result amounts to 2 decimal places.</li>
+                        <li>The formula for calculating the monthly payment is: M = P(i(1+i)n)/((1+i)n - 1)</li>
+                     
+                    </ul>
+                    
+                </p>
+            </div>
+
+            <!-- Code Editor Section -->
+            <div class="code-editor">
+                <h2>Code Editor</h2>
+                <textarea id="code-editor" placeholder="Write your code here..."></textarea>
+                <button id="run-code">Run Code</button>
+            </div>
+
+            <!-- Output Section -->
+            <div class="output">
+                <h2>Output</h2>
+                <iframe id="output-frame"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Certificate Modal Section -->
+    <div class="certificate-modal" id="certificateModal">
+        <div class="certificate-template">
+            <h2>Certificate of Appreciation</h2>
+            <p>This certificate is proudly presented to:</p>
+            <h3 id="certificateStudentName">[Student Name]</h3>
+            <p>for successfully completing question of</p>
+            <h3>PREMIUM TECHNEX Web Development Basics</h3>
+            <p>Date: <span id="certificateDate"></span></p>
+            <button class="close-button" onclick="closeCertificate()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Run code functionality
+        document.getElementById('run-code').addEventListener('click', function() {
+            var code = document.getElementById('code-editor').value;
+            var iframe = document.getElementById('output-frame');
+            iframe.srcdoc = code;
+
+            // Delay certificate display to ensure output is generated first
+            setTimeout(showCertificate, 2000); // Adjust time as needed
+        });
+
+        // Show certificate modal with confetti
+        function showCertificate() {
+            const modal = document.getElementById('certificateModal');
+            const name = prompt("Enter your name for the certificate:");
+
+            if (name) {
+                document.getElementById('certificateStudentName').innerText = name;
+                document.getElementById('certificateDate').innerText = new Date().toLocaleDateString();
+                modal.style.display = 'flex';
+
+                // Trigger confetti when certificate is shown
+                confetti({
+                    particleCount: 150,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+            }
+        }
+
+        // Close the certificate modal
+        function closeCertificate() {
+            document.getElementById('certificateModal').style.display = 'none';
+        }
+    </script> 
+</body>
+</html>

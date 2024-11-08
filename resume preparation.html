@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Front End Interview Guide</title>
+    <style>
+        body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1e1e2f; /* Background color for the page */
+    color: #ffffff; /* Text color */
+}
+
+/* Left Sidebar with Icons */
+.sidebar-icons {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 50%;
+    width: 50px; /* Adjust width as needed */
+    background-color:  #1a1a2e; /* Background color */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.sidebar-icons a {
+    margin: 20px 0;
+    display: block;
+    color: #ffffff; /* Icon color */
+    font-size: 20px; /* Adjust icon size as needed */
+    text-align: center;
+    width: 50%;
+}
+
+.sidebar-icons a:hover {
+    color: #9c9c9c; /* Hover color */
+}
+
+/* Main Sidebar Menu */
+.sidebar-menu {
+    position: fixed;
+    top: 0;
+    left: 50px; /* Offset for icon sidebar */
+    height: 100%;
+    width: 250px;
+    padding: 10px;
+    background-color: #1a1a2e; /* Background color for the main menu */
+    overflow-y: auto;
+}
+
+.sidebar-menu h2 {
+    font-size: 16px;
+    color: #c5c5c5;
+    margin-top: 0;
+}
+
+.sidebar-menu .section-title {
+    font-weight: bold;
+    color: #ffffff;
+    margin: 10px 0 5px;
+}
+
+.sidebar-menu a {
+    display: block;
+    color: #c5c5c5;
+    text-decoration: none;
+    padding: 5px 0;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.sidebar-menu a.active, .sidebar-menu a:hover {
+    color: #ffffff;
+    border-left: 2px solid #6366F1; /* Highlight color on active or hover */
+    padding-left: 5px; /* Adjust padding to align text */
+}
+
+.collapsible {
+    background-color: transparent;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 2px 0;
+    width: 100%;
+    text-align: left;
+    margin: 5px 0;
+}
+
+.collapsible:after {
+    content: '\25BC'; /* Down arrow */
+    font-size: 12px;
+    color: #c5c5c5;
+    float: right;
+    margin-right: 5px;
+}
+
+.collapsible.active:after {
+    content: '\25B2'; /* Up arrow */
+}
+
+.content {
+    display: none;
+    padding-left: 5px;
+}
+
+.content a {
+    margin: 2px 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(#0c0c17);
+    background-attachment: fixed;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+nav {
+    background-color: #1a192c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px 35px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Logo styles */
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #9387E5;
+}
+
+/* Navbar options */
+.nav-options {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-options li {
+    margin-right: 20px;
+    font-size: 16px;
+}
+
+.nav-options li a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.nav-options li a:hover {
+    color: #9387E5;
+}
+
+/* Buttons for login and signup */
+.auth-buttons {
+    display: flex;
+}
+
+.auth-buttons a {
+    text-decoration: none;
+    color: white;
+    padding: 8px 20px;
+    margin-left: 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.login {
+    background-color: #9387E5;
+}
+
+.signup {
+    background-color: #FF6FCF;
+}
+
+.login:hover {
+    background-color: rgba(147, 135, 229, 0.8);
+}
+
+.signup:hover {
+    background-color: rgba(255, 111, 207, 0.8);
+}
+
+.container {
+    display: flex;
+    flex: 1;
+}
+
+/* Adjusted Sidebar */
+.sidebar {  
+    padding-left: 20px;  
+    padding-right: 30px;  
+    width: 250px;  
+    margin-right: 45px;  
+    position: fixed;  
+    height: calc(100% - 60px); /* subtract navbar height from total height */  
+    background-color:  #1e1e49;   
+    top: 60px; /* move sidebar below navbar */  
+    left: 0; /* align sidebar to left */  
+    color: #ffffff;  
+    display: flex;  
+    flex-direction: column;  
+    justify-content: flex-start;
+    z-index: 10; /* Bring sidebar in front */
+}  
+  
+.sidebar h2 {  
+    color: #fff;  
+    margin-bottom: 20px;  
+}  
+  
+.sidebar ul {  
+    list-style: none;  
+    margin-top: 0;  
+    padding-top: 0;  
+}  
+  
+.sidebar ul li {  
+    margin: 0;  
+    padding: 0;  
+    cursor: pointer;  
+    display: flex;  
+    align-items: top;  
+    color: #fff;  
+}  
+  
+.sidebar ul li:hover {  
+    color: #e4ddc0;  
+}  
+  
+.sidebar ul li i {  
+    margin-right: 15px;  
+    font-size: 25px;  
+}
+
+.dropdown-content {
+    display: none;
+    list-style: none;
+    padding-left:10px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.w3-dropdown-content {  
+    background-color: #130000; 
+}
+
+.main-content {
+    padding: 40px;
+    margin-left: 300px;
+    width: calc(100% - 300px);
+    padding-top: 60px;   
+}
+
+.main-content h1 {
+    font-size: 35px;
+    margin-bottom: 35px;
+    color: #ffffff;
+    margin-top: 60px;
+    padding-bottom: 30px; 
+}
+
+.main-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #8d79a1;
+}
+
+.main-content li {
+    color: #8d79a1;
+}
+
+section h2 {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.dropdown-content {
+    display: none;
+    list-style: none;
+    padding-left: 10;
+}
+
+/* Adjusted Footer */
+.footer {
+    z-index: 1; /* Ensure footer is behind sidebar */
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    position: relative; /* Keep it at the base of the page */
+    justify-content: flex-start;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    align-items: center;
+    gap:20px;
+}
+.logo-language {  
+  display: flex;  
+  flex-direction: column;  
+  align-items: flex-start;  
+  margin-right: 100px;
+} 
+.logo-social {  
+  display: flex;  
+  align-items: center; 
+  justify-content: flex-start; 
+  margin-bottom: 0px; 
+  gap:20px;
+  padding-left: 100px;
+}  
+.logo-social img { 
+  width: 40px; 
+  height: 40px;  
+  margin-right: 10px; 
+} 
+.left-section {  
+ display: flex;  
+ flex-direction: column;  
+  align-items: flex-start; 
+  gap:20px;
+  margin-left:auto ;
+}  
+.social-icons { 
+  display: flex; 
+  align-items: center; 
+  gap: 2px; /* Space between social icons */
+}
+.social-icons a {
+    margin-left: 10px;
+    gap:10px;
+}
+.social-icons img {
+    width: 25px;
+    height: 25px;
+}
+
+#language-select {  
+  background-color: #333;  
+  color: #fff;
+  padding: 5px;
+  border: none; 
+  border-radius:5px;  
+  font-size: 16px;  
+  cursor: pointer;
+  justify-content: space-between;
+}  
+#language-select option {  
+  background-color: #333;  
+  color: #fff;  
+  padding: 10px; 
+}  
+#language-select option:hover {  
+  background-color: #444;  
+}
+.footer-links {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    text-align: left;
+    gap:50px;
+}
+
+.footer-links .column h3 {
+    margin-bottom: 2px;
+}
+
+.footer-links .column a {
+    display: block;
+    margin-bottom: 2px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-links .column a:hover {
+    text-decoration: underline;
+}
+.online-status {
+    text-align: right;
+}
+
+.online-status button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.footer-legal {
+    text-align: center;
+    margin-top: 2px;
+}
+
+.footer-legal p {
+    margin: 0;
+    font-size: 14px;
+}
+</style>
+</head>
+<body>
+
+    <!-- Sidebar Icons Section -->
+    <div class="sidebar-icons">
+        <a href="#home"><i class="fas fa-home"></i></a>
+        <a href="#dashboard"><i class="fas fa-columns"></i></a>
+        <a href="#calendar"><i class="fas fa-calendar-alt"></i></a>
+        <a href="#settings"><i class="fas fa-cog"></i></a>
+        <a href="#profile"><i class="fas fa-user"></i></a>
+        <a href="#github"><i class="fab fa-github"></i></a>
+        <a href="#linkedin"><i class="fab fa-linkedin"></i></a>
+        <a href="#logout"><i class="fas fa-sign-out-alt"></i></a>
+    </div>
+
+    <!-- Main Sidebar Menu -->
+    <div class="sidebar-menu">
+        <h2><i class="fas fa-book"></i> Front End Interview</h2>
+        <div class="section-title">Overview</div>
+        <a href="#preparation-guide" class="active">Preparation Guide</a>
+
+        <div class="section-title">Getting the Interview</div>
+        <a href="#resume-preparation">Resume Preparation</a>
+
+        <div class="section-title">Preparation by Question Type</div>
+        <button class="collapsible">Coding Questions</button>
+        <div class="content">
+            <a href="#algorithm-questions">Algorithm Questions</a>
+            <a href="#javascript-questions">JavaScript Questions</a>
+            <a href="#ui-questions">User Interface Questions</a>
+            <a href="#ui-cheatsheet">UI Questions Cheatsheet</a>
+            <a href="#api-design">UI Components API Design Principles</a>
+        </div>
+        <a href="#system-design-questions">System Design Questions</a>
+        <a href="#quiz-questions">Quiz Questions</a>
+    </div>
+    <!-- Navigation bar -->
+  <nav>
+    <div class="logo">TECHNEX</div>
+    <ul class="nav-options">
+      <li><a href="#">Option 1</a></li>
+      <li><a href="#">Option 2</a></li>
+      <li><a href="#">Option 3</a></li>
+      <li><a href="#">Option 4</a></li>
+      <li><a href="#">Option 5</a></li>
+      <li><a href="#">Option 6</a></li>
+    </ul>
+    <div class="auth-buttons">
+      <a href="#" class="login">LOGIN</a>
+      <a href="#" class="signup">SIGNUP</a>
+    </div>
+  </nav>
+  <div class="container">
+    
+    
+      <!-- Main Content -->
+      <div class="main-content">
+
+
+
+        <h1>Front End Resume — Front End Specific Writing Tips, with Examples</h1>
+        <p><br>Tips to enhance your front end developer / web developer resume to get that front end job interview.</br>
+            To even get an interview for a Front End Engineer position, we have to submit a resume that passes the company's resume screening process. There are many existing resources out there to help you craft a good Software Engineer resume but few are tailored towards Front End Engineers. For general Software Engineer resume tips, refer to Tech Interview Handbook.</p>
+        <p>On this page, we provide some front end-specific tips to help Front End Engineers improve their resumes and get to the interview stage.</p>
+        <p><br>In recent years, the industry is gradually shifting away from asking front end interview candidates to
+          solve data structures and algorithms (DSA) questions. Instead, candidates will have to implement common front
+          end library functions and/or build practical UI components/apps which tests their understanding of practical
+          and relevant front end concepts. This is an encouraging trend because unlike most DSA questions, front end
+          interview questions are highly relevant to a front end engineer's day-to-day responsibilities and is a more
+          accurate assessment.</p></br>
+        <p>However, many existing software engineering interview resources are geared towards general software
+          engineering roles instead of Front End Engineers. We have written some tips on how to tailor your resume for
+          Front End Engineering positions.</p>
+
+        <h2>Prepare by Question Types</h2>
+        <p>There are many different formats a front end interview loop can be conducted and each company does things
+          differently. To be efficient in your preparation, you should find out the different interview stages of the
+          companies you are interviewing with, the various rounds within each stage, and the question types you will be
+          asked in each round.</p>
+        <p>Each question format has its own challenges and quirks. We'll introduce you to the various formats and you
+          can read the dedicated pages for each type if you'd like to find out more.</p>
+
+        <h3>Coding Questions</h3>
+        <p>Coding questions will involve writing code (duh!). However, the code you will be required to write and the
+          platforms you will write the code on can vary wildly. You could be asked about:</p>
+        <ul>
+          <li>Algorithmic Coding: Solve tricky algorithmic questions that evaluates your understanding of data
+            structures, algorithms and time complexity. Read about Algorithmic Coding Interviews.</li>
+          <li>JavaScript Coding: Implement functions or data structures in JavaScript that are related to front end
+            domain and commonly used during front end development. Read about JavaScript Coding Interviews.</li>
+          <li>User Interface Coding: Build user interfaces (components, widgets, apps) using HTML, CSS, and JavaScript,
+            sometimes even using JavaScript frameworks. Read about User Interface Coding Interviews.</li>
+        </ul>
+        <p>Companies are trending towards using domain-specific coding questions and less on testing about algorithms
+          and data structures as the former is more relevant for evaluating the core skills needed for front end
+          engineering work.</p>
+
+        <h3>System Design Questions</h3>
+        <p>System Design interviews are highly open-ended interviews that involve coming up with a software system
+          design to solve a vague problem or scenario. Candidates will have to break down a system into smaller
+          components, draw architecture diagrams, design APIs, dive into certain parts of the system and discuss
+          tradeoffs in order to succeed.</p>
+        <p>System design interviews are usually only given to senior level candidates and the required systems can be
+          one of the following types and examples:</p>
+        <ul>
+          <li>Distributed systems: Twitter back end, URL shortener</li>
+          <li>Client applications: Newsfeed, Photo sharing applications</li>
+          <li>Complex user interface components: Autocomplete, Dropdown menu, Modal</li>
+        </ul>
+        <p>Most of the time, Front End Engineers will be asked to design client applications and complex user interface
+          components as those products are more relevant to front end engineering.</p>
+
+        <h3>Quiz Questions</h3>
+        <p>Quiz questions, also known as trivia questions, are short questions meant to test your understanding of the
+          domain. Each question shouldn't take more than a minute or two to answer.</p>
+        <p>There usually wouldn't be entire interview rounds just asking you quiz questions, but they could be sprung
+          onto you in the middle of other interview rounds.</p>
+
+        <h3>Behavioral Questions/Interviews</h3>
+        <p>In behavioral interviews, interviewer asks questions about your past behaviors and experiences in order to
+          evaluate your suitability for the job and maturity level.</p>
+        <p>The idea behind behavioral interviews is that past behaviors and experiences are good indicators of how
+          someone will behave in the future, so the interviewer will ask questions that are designed to get you to
+          describe specific situations you have faced and how you have dealt with them in order to get a better
+          understanding about you beyond your technical capabilities.</p>
+        <p>Behavioral interviews is a large topic on its own and we have written an entire guidebook on it.</p>
+
+        <h2> Typical Hiring Process</h2>
+        <p>Most companies will have a process resembling:</p>
+        <ol>
+          <li>Initial screen</li>
+          <li>Recruiter call (Quiz questions may be asked)</li>
+          <li>Autograded online assessments or take home projects</li>
+          <li>Phone screen</li>
+          <li>Coding (Implementing algorithms, JavaScript functions, or building user interfaces)</li>
+          <li>Full loop</li>
+          <ul>
+            <li>Coding round (Implementing algorithms, JavaScript functions, or building user interfaces)</li>
+            <li>System design round</li>
+            <li>Behavioral round</li>
+          </ul>
+        </ol>
+        <p>The surest way to know what to expect is to ask the company recruiter about their interview process for the
+          role. Good companies will even prepare a detailed document to explain each stage of the interview process
+          along with resources to guide the candidates to prepare for the interviews. For big companies that see a large
+          volume of applicants, there's a good chance that some candidates who have interviewed with them will share
+          their experience on platforms like Glassdoor, Blind, and Reddit.</p>
+        <p>You must know what question types to expect in interviews, otherwise you'll be flying blind and not be able
+          to prepare effectively.</p>
+
+        <h2>Round-Type Matrix</h2>
+        <p>The following matrix shows the relevance/likelihood of each question type during each interview round. It's
+          possible that an interview round can include questions from different question types.</p>
+
+        <table border="1">
+          <tr>
+            <th>Round</th>
+            <th>Quiz</th>
+            <th>Algorithms</th>
+            <th>UI</th>
+            <th>JavaScript</th>
+            <th>System Design</th>
+          </tr>
+          <tr>
+            <td>Online Assessment</td>
+            <td>Medium</td>
+            <td>High</td>
+            <td>High</td>
+            <td>High</td>
+            <td>
+
+              None</td>
+          </tr>
+          <tr>
+            <td>Recruiter Call</td>
+            <td>Medium</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+          </tr>
+          <tr>
+            <td>Take Home Project</td>
+            <td>None</td>
+            <td>None</td>
+            <td>High</td>
+            <td>Medium</td>
+            <td>Medium</td>
+          </tr>
+          <tr>
+            <td>Coding</td>
+            <td>Low</td>
+            <td>High</td>
+            <td>High</td>
+            <td>High</td>
+            <td>Low</td>
+          </tr>
+          <tr>
+            <td>Behavioral</td>
+            <td>Low</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+          </tr>
+          <tr>
+            <td>System Design</td>
+            <td>Low</td>
+            <td>None</td>
+            <td>Low</td>
+            <td>None</td>
+            <td>High</td>
+          </tr>
+          <tr>
+            <td>Hiring Manager</td>
+            <td>Low</td>
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            <td>Low</td>
+          </tr>
+        </table>
+
+        <h2>Question Types Asked by Companies</h2>
+        <p>Here's a summary of the question types asked by the top US companies.</p>
+
+        <table border="1">
+          <tr>
+            <th>Company</th>
+            <th>Quiz</th>
+            <th>Algorithms</th>
+            <th>JavaScript</th>
+            <th>UI</th>
+            <th>System Design</th>
+            <th>Behavioral</th>
+          </tr>
+          <tr>
+            <td>Airbnb</td>
+            <td>No</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>No</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Amazon</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Apple</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Unknown</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>ByteDance</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>No</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Dropbox</td>
+            <td>No</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Facebook/Meta</td>
+            <td>Yes</td>
+            <td>No</td>
+            <td>Yes</td>
+            <td>No</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Google</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>LinkedIn</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Unknown</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Lyft</td>
+            <td>No</td>
+            <td>No</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Microsoft</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Twitter</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Uber</td>
+            <td>Unknown</td>
+            <td>Unknown</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Unknown</td>
+            <td>Yes</td>
+          </tr>
+        </table>
+        <h2>Study and Practice</h2>
+        <p>Read on to find out how to prepare for the following front end interview formats/questions types:</p>
+        <ul>
+          <li>Coding Questions</li>
+          <li>Algorithmic Questions</li>
+          <li>JavaScript Questions</li>
+          <li>User Interface Questions</li>
+          <li>System Design Questions</li>
+          <li>Quiz Questions</li>
+        </ul>
+
+      </div>
+    </div>
+</body>
+</div>
+<!-- Footer -->
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <footer class="footer">  
+    <div class="footer-content">
+    <div class="logo-language"> 
+      <h2 class="logo">Technex</h2>
+   <div class="left-section">  
+     <div class="social-icons">  
+    <a href="#"><img src="Screenshot 2024-10-21 210315.png" alt="LinkedIn"></a>  
+    <a href="#"><img src="Screenshot 2024-10-21 205937.png" alt="Discord"></a>  
+    <a href="#"><img src="Screenshot 2024-10-21 210043.png" alt="GitHub"></a>  
+    <a href="#"><img src="Screenshot 2024-10-21 210121.png" alt="X"></a>  
+    </div> 
+     <select id="language-select">  
+    <option value="en-US">English(US)</option>  
+    <option value="zh-CN">中文 (简体)</option>  
+    <option value="pt-BR">Português (Brasil)</option>  
+    </select> 
+   </div>
+    </div>   
+      <div class="footer-links">
+        <div class="column">
+          <h3>Practice</h3>
+          <a href="#">Get Started</a>
+          <a href="#">Coding Questions</a>
+          <a href="#">System Design Questions</a>
+          <a href="#">Quiz Questions</a>
+        </div>
+        <div class="column">
+          <h3>Guides</h3>
+          <a href="#">Front End Interview Guidebook</a>
+          <a href="#">Front End System Design Guidebook</a>
+          <a href="#">Behavioral Interview Guidebook</a>
+        </div>
+        <div class="column">
+          <h3>Study Plans</h3>
+          <a href="#">1 Week Plan</a>
+          <a href="#">1 Month Plan</a>
+          <a href="#">3 Months Plan</a>
+        </div>
+        <div class="column">
+          <h3>Company</h3>
+          <a href="#">Pricing</a>
+          <a href="#">Blog</a>
+          <a href="#">Roadmap</a>
+          <a href="#">About</a>
+          <a href="#">Team</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Become an Affiliate</a>
+          <a href="#">We're Hiring</a>
+        </div>
+      <div class="online-status">
+        <button>524 online</button>
+        <button>Feedback</button>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p>&copy; 2024 Codeney Pte Ltd. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+
+</html>
+
+    <script>
+        // JavaScript for collapsible functionality
+        const coll = document.querySelectorAll(".collapsible");
+        coll.forEach(button => {
+            button.addEventListener("click", function() {
+                this.classList.toggle("active");
+                const content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        });
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+    dropdown.addEventListener('click', function () {
+      this.querySelector('.dropdown-content').classList.toggle('show');
+    });
+  });
+    </script>
+</body>
+</html>

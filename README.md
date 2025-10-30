@@ -56,5 +56,5 @@ Fully responsive for use on mobile, tablet, and desktop.
 2.CSS3 & Bootstrap - For responsive and modern UI design.
 3.JavaScript - For dynamic and interactive functionality.
 4.Local Storage - To store user data locally in the browser.
-5.Figma - Used for designing the user interface.
+5.Figma - Used for designing the user interface..
 
